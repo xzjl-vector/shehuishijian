@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+    <title>文本</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+            background: #f5f7f6;
+            color: #1a1a2e;
+            line-height: 1.6;
+            font-size: 16px;
+            padding-bottom: 20px;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 220px;
+            background: linear-gradient(135deg, #0b3d2e 0%, #1a6b4a 60%, #2d8f6a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            position: relative;
+            overflow: hidden;
+        }
+
+            .hero-image .overlay {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                padding: 20px 20px 18px;
+                background: linear-gradient(transparent, rgba(0, 0, 0, 0.5));
+                text-align: center;
+            }
+
+                .hero-image .overlay h1 {
+                    font-size: 1.6rem;
+                    font-weight: 700;
+                }
+
+                .hero-image .overlay p {
+                    font-size: 0.9rem;
+                    opacity: 0.85;
+                    margin-top: 2px;
+                }
+
+        .container {
+            padding: 16px 16px 0;
+            max-width: 480px;
+            margin: 0 auto;
+        }
+
+        .nav-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .nav-card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 18px 8px 16px;
+            text-align: center;
+            text-decoration: none;
+            color: #1a1a2e;
+            border: 1px solid #e8edeb;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+            transition: 0.15s;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+            .nav-card:active {
+                transform: scale(0.95);
+                background: #f0f2f1;
+            }
+
+            .nav-card .icon {
+                font-size: 2.2rem;
+                display: block;
+                margin-bottom: 4px;
+            }
+
+            .nav-card .label {
+                font-weight: 600;
+                font-size: 0.95rem;
+            }
+
+            .nav-card .desc {
+                font-size: 0.7rem;
+                color: #6b7280;
+                margin-top: 2px;
+            }
+
+        .card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 18px 18px 20px;
+            margin-top: 14px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(0, 0, 0, 0.03);
+        }
+
+        .card-title {
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+            .card-title .icon {
+                font-size: 1.2rem;
+            }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #374151;
+        }
+
+        .footer-text {
+            text-align: center;
+            font-size: 0.75rem;
+            color: #9ca3af;
+            padding: 20px 0 8px;
+        }
+
+        .text-muted {
+            color: #6b7280;
+            font-size: 0.85rem;
+        }
+
+        .mt-8 {
+            margin-top: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hero-image">
+        <div class="overlay">
+            <h1>文本</h1>
+            <p>文本</p>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <div class="nav-grid">
+            <a href="about.html" class="nav-card">
+                <span class="icon">文本</span>
+                <span class="label">文本</span>
+                <span class="desc">文本</span>
+            </a>
+            <a href="services.html" class="nav-card">
+                <span class="icon">文本</span>
+                <span class="label">文本</span>
+                <span class="desc">文本</span>
+            </a>
+            <a href="contact.html" class="nav-card">
+                <span class="icon">文本</span>
+                <span class="label">文本</span>
+                <span class="desc">文本</span>
+            </a>
+        </div>
+
+        <div class="card">
+            <div class="card-title">
+                <span class="icon">文本</span> 文本
+            </div>
+            <p>文本</p>
+            <p class="text-muted mt-8">文本</p>
+        </div>
+
+        <div class="card">
+            <div class="card-title">
+                <span class="icon">文本</span> 文本
+            </div>
+            <p>文本</p>
+            <p style="font-size:0.85rem; color:#6b7280; margin-top:4px;">文本</p>
+        </div>
+
+        <div class="footer-text">文本</div>
+
+    </div>
+
+</body>
+</html>

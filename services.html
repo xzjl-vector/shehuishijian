@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+    <title>文本</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+            background: #f5f7f6;
+            color: #1a1a2e;
+            line-height: 1.6;
+            font-size: 16px;
+            padding-bottom: 20px;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 140px;
+            background: linear-gradient(135deg, #0b3d2e 0%, #1a6b4a 60%, #2d8f6a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+            .hero-image .overlay {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                padding: 16px 20px 14px;
+                background: linear-gradient(transparent, rgba(0, 0, 0, 0.5));
+                text-align: center;
+            }
+
+                .hero-image .overlay h1 {
+                    font-size: 1.3rem;
+                    font-weight: 700;
+                }
+
+                .hero-image .overlay p {
+                    font-size: 0.8rem;
+                    opacity: 0.85;
+                }
+
+        .container {
+            padding: 16px 16px 0;
+            max-width: 480px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 18px 18px 20px;
+            margin-top: 14px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(0, 0, 0, 0.03);
+        }
+
+        .card-title {
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+            .card-title .icon {
+                font-size: 1.2rem;
+            }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #374151;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: #1a6b4a;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+            padding: 8px 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+            .back-link:active {
+                opacity: 0.6;
+            }
+
+        .team-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 6px;
+        }
+
+        .team-member {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: #f9fafb;
+            padding: 12px 14px;
+            border-radius: 12px;
+            border: 1px solid #e8edeb;
+        }
+
+            .team-member .avatar {
+                font-size: 2.2rem;
+                width: 48px;
+                text-align: center;
+                flex-shrink: 0;
+            }
+
+            .team-member .info .name {
+                font-weight: 600;
+                font-size: 0.95rem;
+            }
+
+            .team-member .info .role {
+                font-size: 0.8rem;
+                color: #1a6b4a;
+            }
+
+            .team-member .info .bio {
+                font-size: 0.78rem;
+                color: #6b7280;
+            }
+
+        .footer-text {
+            text-align: center;
+            font-size: 0.75rem;
+            color: #9ca3af;
+            padding: 20px 0 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hero-image">
+        <div class="overlay">
+            <h1>文本</h1>
+            <p>文本</p>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <a href="index.html" class="back-link">← 文本</a>
+
+        <div class="card">
+            <div class="card-title">
+                <span class="icon">文本</span> 文本
+            </div>
+            <p>文本</p>
+            <div class="team-list">
+                <div class="team-member">
+                    <div class="avatar">文本</div>
+                    <div class="info">
+                        <div class="name">文本</div>
+                        <div class="role">文本</div>
+                        <div class="bio">文本</div>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="avatar">文本</div>
+                    <div class="info">
+                        <div class="name">文本</div>
+                        <div class="role">文本</div>
+                        <div class="bio">文本</div>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="avatar">文本</div>
+                    <div class="info">
+                        <div class="name">文本</div>
+                        <div class="role">文本</div>
+                        <div class="bio">文本</div>
+                    </div>
+                </div>
+                <div class="team-member" style="background:#f3f4f6; border-style:dashed; justify-content:center;">
+                    <span style="font-size:0.85rem; color:#6b7280;">文本</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-title">
+                <span class="icon">文本</span> 文本
+            </div>
+            <p>文本</p>
+        </div>
+
+        <div class="footer-text">文本</div>
+
+    </div>
+
+</body>
+</html>
+</html>

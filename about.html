@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+    <title>文本</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+            background: #f5f7f6;
+            color: #1a1a2e;
+            line-height: 1.6;
+            font-size: 16px;
+            padding-bottom: 20px;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 140px;
+            background: linear-gradient(135deg, #0b3d2e 0%, #1a6b4a 60%, #2d8f6a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+            .hero-image .overlay {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                padding: 16px 20px 14px;
+                background: linear-gradient(transparent, rgba(0, 0, 0, 0.5));
+                text-align: center;
+            }
+
+                .hero-image .overlay h1 {
+                    font-size: 1.3rem;
+                    font-weight: 700;
+                }
+
+                .hero-image .overlay p {
+                    font-size: 0.8rem;
+                    opacity: 0.85;
+                }
+
+        .container {
+            padding: 16px 16px 0;
+            max-width: 480px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 18px 18px 20px;
+            margin-top: 14px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(0, 0, 0, 0.03);
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: #1a6b4a;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+            padding: 8px 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+            .back-link:active {
+                opacity: 0.6;
+            }
+
+        .service-item {
+            display: flex;
+            gap: 14px;
+            padding: 14px 0;
+            border-bottom: 1px solid #f0f2f1;
+        }
+
+            .service-item:last-child {
+                border-bottom: none;
+            }
+
+            .service-item .s-icon {
+                font-size: 2rem;
+                width: 48px;
+                text-align: center;
+                flex-shrink: 0;
+            }
+
+            .service-item .s-info .s-title {
+                font-weight: 600;
+                font-size: 1rem;
+            }
+
+            .service-item .s-info .s-desc {
+                font-size: 0.88rem;
+                color: #4b5563;
+            }
+
+            .service-item .s-info .s-tag {
+                display: inline-block;
+                background: #d1fae5;
+                color: #065f46;
+                font-size: 0.65rem;
+                padding: 0 12px;
+                border-radius: 20px;
+                margin-top: 4px;
+                font-weight: 500;
+            }
+
+        .footer-text {
+            text-align: center;
+            font-size: 0.75rem;
+            color: #9ca3af;
+            padding: 20px 0 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hero-image">
+        <div class="overlay">
+            <h1>文本</h1>
+            <p>文本</p>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <a href="index.html" class="back-link">← 文本</a>
+
+        <div class="card">
+
+            <div class="service-item">
+                <div class="s-icon">文本</div>
+                <div class="s-info">
+                    <div class="s-title">文本</div>
+                    <div class="s-desc">文本</div>
+                    <span class="s-tag">文本</span>
+                </div>
+            </div>
+
+            <div class="service-item">
+                <div class="s-icon">文本</div>
+                <div class="s-info">
+                    <div class="s-title">文本</div>
+                    <div class="s-desc">文本</div>
+                    <span class="s-tag">文本</span>
+                </div>
+            </div>
+
+            <div class="service-item">
+                <div class="s-icon">文本</div>
+                <div class="s-info">
+                    <div class="s-title">文本</div>
+                    <div class="s-desc">文本</div>
+                    <span class="s-tag">文本</span>
+                </div>
+            </div>
+
+            <div class="service-item">
+                <div class="s-icon">文本</div>
+                <div class="s-info">
+                    <div class="s-title">文本</div>
+                    <div class="s-desc">文本</div>
+                    <span class="s-tag">文本</span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-text">文本</div>
+
+    </div>
+
+</body>
+</html>
