@@ -490,7 +490,7 @@
             <button class="btn btn-danger" id="clearBtn">🗑️ 清空</button>
             <button class="btn btn-secondary" id="copyAllBtn" style="display:none;">📋 复制链接</button>
         </div>
-
+        <a href="index.html" class="back-link">←返回首页</a>
         <div class="footer-tip">
             💡 先选择图片，点击"上传到图床"按钮
             <br />
@@ -720,8 +720,8 @@
             }
 
             // 检查文件大小 (5MB)
-            if (selectedFile.size > 5 * 1024 * 1024) {
-                setStatus('图片超过 5MB，请压缩后重试', 'error', '❌');
+            if (selectedFile.size > 50 * 1024 * 1024) {
+                setStatus('图片超过 50MB，请压缩后重试', 'error', '❌');
                 return;
             }
 
