@@ -40,7 +40,7 @@
                 left: 0;
                 right: 0;
                 padding: 12px 20px 10px;
-                background: linear-gradient(transparent, rgba(0,0,0,0.5));
+                background: linear-gradient(transparent, rgba(0, 0, 0, 0.5));
                 text-align: center;
             }
 
@@ -74,8 +74,8 @@
             background: #fff;
             border-radius: 14px;
             padding: 14px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-            border: 1px solid rgba(0,0,0,0.03);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(0, 0, 0, 0.03);
             margin-bottom: 12px;
         }
 
@@ -98,6 +98,7 @@
                 border-radius: 20px;
             }
 
+        /* ===== 图片网格 ===== */
         .gallery-grid {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
@@ -105,7 +106,7 @@
         }
 
         .gallery-item {
-            aspect-ratio: 1/1;
+            aspect-ratio: 1 / 1;
             border-radius: 10px;
             overflow: hidden;
             background: #f3f4f6;
@@ -124,19 +125,42 @@
                 height: 100%;
                 object-fit: cover;
                 display: block;
+                background: #f3f4f6;
             }
 
             .gallery-item .img-index {
                 position: absolute;
                 bottom: 4px;
                 left: 4px;
-                background: rgba(0,0,0,0.6);
+                background: rgba(0, 0, 0, 0.6);
                 color: #fff;
                 font-size: 0.5rem;
                 padding: 1px 8px;
                 border-radius: 10px;
+                pointer-events: none;
             }
 
+            /* ===== 点击查看大图提示 ===== */
+            .gallery-item .view-hint {
+                position: absolute;
+                top: 4px;
+                right: 4px;
+                background: rgba(0, 0, 0, 0.6);
+                color: #fff;
+                font-size: 0.5rem;
+                padding: 2px 8px;
+                border-radius: 10px;
+                opacity: 0;
+                transition: opacity 0.2s;
+                pointer-events: none;
+            }
+
+            .gallery-item:hover .view-hint,
+            .gallery-item:active .view-hint {
+                opacity: 1;
+            }
+
+        /* ===== 状态 ===== */
         .empty-state {
             text-align: center;
             padding: 30px 20px;
@@ -185,6 +209,7 @@
             }
         }
 
+        /* ===== 按钮 ===== */
         .btn {
             display: inline-block;
             padding: 12px 16px;
@@ -244,7 +269,7 @@
             bottom: 70px;
             left: 50%;
             transform: translateX(-50%);
-            background: rgba(0,0,0,0.85);
+            background: rgba(0, 0, 0, 0.85);
             color: #fff;
             padding: 8px 20px;
             border-radius: 10px;
@@ -314,6 +339,23 @@
             color: #065f46;
             border: 1px solid #a7f3d0;
         }
+
+        /* ===== 图片加载占位动画 ===== */
+        @keyframes shimmer {
+            0% {
+                background-position: -200% 0;
+            }
+
+            100% {
+                background-position: 200% 0;
+            }
+        }
+
+        .gallery-item img.loading {
+            background: linear-gradient(90deg, #f3f4f6 25%, #e5e7eb 50%, #f3f4f6 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+        }
     </style>
 </head>
 <body>
@@ -365,7 +407,7 @@
         </div>
 
         <div class="storage-info">
-            💡 图片存储在 <strong>ImgBB 图床</strong>，链接同步到云端
+            💡 点击图片可查看 <strong>原图</strong>
             <br />
             <span style="font-size:0.7rem; opacity:0.7;">所有设备共享同一个云端数据</span>
         </div>
@@ -399,23 +441,16 @@
         let images = [];
         let isLoading = false;
 
+        // ============================================================
+        // Toast
+        // ============================================================
         function showToast(msg) {
             toast.textContent = msg;
             toast.classList.add('show');
             clearTimeout(toast._timer);
-            toast._timer = setTimeout(() => { toast.classList.remove('show'); }, 2000);
-        }
-
-        // ============================================================
-        // 获取缩略图
-        // ============================================================
-        function getThumbUrl(url) {
-            if (!url) return url;
-            const lastDot = url.lastIndexOf('.');
-            if (lastDot > 0) {
-                return url.substring(0, lastDot) + '_thumb' + url.substring(lastDot);
-            }
-            return url;
+            toast._timer = setTimeout(() => {
+                toast.classList.remove('show');
+            }, 2000);
         }
 
         // ============================================================
@@ -473,7 +508,7 @@
         }
 
         // ============================================================
-        // 渲染
+        // 渲染（修复：直接使用原图 + 点击查看原图）
         // ============================================================
         function renderGallery() {
             if (images.length === 0) {
@@ -490,19 +525,69 @@
             galleryGrid.innerHTML = '';
 
             images.forEach((imgData, index) => {
-                const thumbUrl = getThumbUrl(imgData.url);
+                const url = imgData.url;
 
                 const item = document.createElement('div');
                 item.className = 'gallery-item';
-                item.innerHTML = `
-                        <img src="${thumbUrl}" alt="${imgData.name || '纹样'}" loading="lazy" />
-                        <span class="img-index">#${index + 1}</span>
-                    `;
 
-                item.addEventListener('click', function () {
+                // 图片加载状态
+                const img = document.createElement('img');
+                img.src = url;
+                img.alt = imgData.name || '纹样';
+                img.loading = 'lazy';
+                img.className = 'loading';
+
+                // 图片加载完成后移除 loading 样式
+                img.onload = function () {
+                    this.classList.remove('loading');
+                };
+
+                // 图片加载失败时显示占位
+                img.onerror = function () {
+                    this.style.display = 'none';
+                    this.parentElement.style.display = 'flex';
+                    this.parentElement.style.alignItems = 'center';
+                    this.parentElement.style.justifyContent = 'center';
+                    this.parentElement.innerHTML = `
+                            <span style="font-size:0.7rem; color:#9ca3af; text-align:center;">
+                                🖼️<br/>加载失败
+                            </span>
+                            <span class="img-index">#${index + 1}</span>
+                        `;
+                    // 重新添加索引
+                    const idxSpan = document.createElement('span');
+                    idxSpan.className = 'img-index';
+                    idxSpan.textContent = '#' + (index + 1);
+                    this.parentElement.appendChild(idxSpan);
+                };
+
+                // 索引标签
+                const idxSpan = document.createElement('span');
+                idxSpan.className = 'img-index';
+                idxSpan.textContent = '#' + (index + 1);
+
+                // 查看提示
+                const hint = document.createElement('span');
+                hint.className = 'view-hint';
+                hint.textContent = '🔍 查看原图';
+
+                // 组装
+                item.appendChild(img);
+                item.appendChild(idxSpan);
+                item.appendChild(hint);
+
+                // ===== 点击查看原图（核心功能） =====
+                item.addEventListener('click', function (e) {
+                    // 如果点击的是图片本身，直接打开原图
                     if (imgData && imgData.url) {
+                        // 在新窗口打开原图
                         window.open(imgData.url, '_blank');
                     }
+                });
+
+                // 长按提示（移动端）
+                item.addEventListener('touchstart', function () {
+                    // 简单触觉反馈
                 });
 
                 galleryGrid.appendChild(item);
@@ -521,7 +606,7 @@
         }
 
         // ============================================================
-        // URL 参数
+        // URL 参数（从 upload 跳转过来）
         // ============================================================
         function checkUrlParams() {
             const params = new URLSearchParams(window.location.search);
@@ -553,6 +638,7 @@
             await loadFromCloud();
             checkUrlParams();
             console.log('📸 已加载，图片数:', images.length);
+            console.log('💡 点击图片可查看原图');
         }
 
         init();
