@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
-    <title>图片上传 · 检测反馈</title>
+    <title>上传 · 蜡染纹样</title>
     <style>
         * {
             margin: 0;
@@ -20,28 +20,79 @@
             padding-bottom: 40px;
         }
 
-        .card {
-            background: #ffffff;
-            border-radius: 16px;
-            padding: 20px;
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+        .hero-image {
+            width: 100%;
+            height: 120px;
+            background: linear-gradient(135deg, #0b3d2e 0%, #1a6b4a 60%, #2d8f6a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+            border-radius: 0 0 30px 30px;
             margin-bottom: 16px;
         }
 
+            .hero-image .overlay {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                padding: 14px 20px 12px;
+                background: linear-gradient(transparent, rgba(0,0,0,0.5));
+                text-align: center;
+            }
+
+                .hero-image .overlay h1 {
+                    font-size: 1.2rem;
+                    font-weight: 700;
+                }
+
+                .hero-image .overlay p {
+                    font-size: 0.75rem;
+                    opacity: 0.85;
+                }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: #1a6b4a;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+            padding: 8px 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+            .back-link:active {
+                opacity: 0.6;
+            }
+
+        .card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 18px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+            border: 1px solid rgba(0,0,0,0.03);
+            margin-bottom: 14px;
+        }
+
         .card-title {
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-bottom: 16px;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 12px;
             display: flex;
             align-items: center;
             gap: 8px;
         }
 
             .card-title .icon {
-                font-size: 1.3rem;
+                font-size: 1.2rem;
             }
 
-        /* ===== 选择按钮 ===== */
         .btn {
             display: inline-block;
             padding: 14px 20px;
@@ -54,6 +105,7 @@
             -webkit-tap-highlight-color: transparent;
             text-align: center;
             min-height: 52px;
+            text-decoration: none;
         }
 
             .btn:active {
@@ -87,24 +139,6 @@
                 background: #b91c1c;
             }
 
-        .btn-success {
-            background: #16a34a;
-            color: #fff;
-        }
-
-            .btn-success:active {
-                background: #15803d;
-            }
-
-        .btn-warning {
-            background: #f59e0b;
-            color: #fff;
-        }
-
-            .btn-warning:active {
-                background: #d97706;
-            }
-
         .btn-block {
             display: block;
             width: 100%;
@@ -126,7 +160,6 @@
             cursor: not-allowed;
         }
 
-        /* ===== 文件选择区域 ===== */
         .file-select-area {
             display: flex;
             gap: 10px;
@@ -156,7 +189,6 @@
             display: none;
         }
 
-        /* ===== 状态显示 ===== */
         .status-box {
             padding: 14px 16px;
             border-radius: 12px;
@@ -218,7 +250,6 @@
             flex-shrink: 0;
         }
 
-        /* ===== 进度条 ===== */
         .progress-bar {
             width: 100%;
             height: 6px;
@@ -241,7 +272,6 @@
                 transition: width 0.3s ease;
             }
 
-        /* ===== 预览网格 ===== */
         .preview-grid {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
@@ -250,7 +280,7 @@
         }
 
         .preview-item {
-            aspect-ratio: 1 / 1;
+            aspect-ratio: 1/1;
             border-radius: 12px;
             background: #f3f4f6;
             display: flex;
@@ -260,8 +290,6 @@
             overflow: hidden;
             position: relative;
             border: 2px solid #e5e7eb;
-            transition: 0.2s;
-            -webkit-tap-highlight-color: transparent;
         }
 
             .preview-item.has-image {
@@ -283,7 +311,7 @@
                 position: absolute;
                 top: 6px;
                 right: 6px;
-                background: rgba(220, 38, 38, 0.92);
+                background: rgba(220,38,38,0.92);
                 color: #fff;
                 border: none;
                 border-radius: 50%;
@@ -292,7 +320,6 @@
                 font-size: 1rem;
                 cursor: pointer;
                 display: none;
-                -webkit-tap-highlight-color: transparent;
                 box-shadow: 0 2px 8px rgba(0,0,0,0.2);
             }
 
@@ -304,72 +331,6 @@
                 transform: scale(0.85);
             }
 
-        /* ===== 图片信息 ===== */
-        .image-info {
-            margin-top: 12px;
-            padding: 12px 14px;
-            background: #f9fafb;
-            border-radius: 12px;
-            font-size: 0.8rem;
-            word-break: break-all;
-            display: none;
-        }
-
-            .image-info.show {
-                display: block;
-            }
-
-            .image-info .info-row {
-                display: flex;
-                justify-content: space-between;
-                padding: 4px 0;
-                border-bottom: 1px solid #e5e7eb;
-                gap: 8px;
-            }
-
-                .image-info .info-row:last-child {
-                    border-bottom: none;
-                }
-
-            .image-info .label {
-                color: #6b7280;
-                flex-shrink: 0;
-            }
-
-            .image-info .value {
-                color: #1a1a2e;
-                text-align: right;
-                overflow: hidden;
-                text-overflow: ellipsis;
-            }
-
-                .image-info .value a {
-                    color: #1a6b4a;
-                    text-decoration: none;
-                }
-
-                .image-info .value .check-mark {
-                    color: #16a34a;
-                }
-
-        .count-badge {
-            display: inline-block;
-            background: rgba(255,255,255,0.2);
-            padding: 2px 14px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 400;
-            margin-left: 8px;
-        }
-
-        .footer-tip {
-            text-align: center;
-            font-size: 0.7rem;
-            color: #9ca3af;
-            padding: 8px 0;
-        }
-
-        /* ===== 上传结果详情 ===== */
         .result-detail {
             margin-top: 10px;
             padding: 12px 14px;
@@ -400,117 +361,160 @@
                 .result-detail .detail-item .fail {
                     color: #dc2626;
                 }
+
+        .footer-tip {
+            text-align: center;
+            font-size: 0.7rem;
+            color: #9ca3af;
+            padding: 8px 0;
+        }
+
+        .count-badge {
+            display: inline-block;
+            background: #d1fae5;
+            color: #065f46;
+            padding: 2px 14px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 400;
+            margin-left: auto;
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0,0,0,0.8);
+            color: #fff;
+            padding: 10px 24px;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            z-index: 300;
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+            max-width: 90%;
+            text-align: center;
+        }
+
+            .toast.show {
+                opacity: 1;
+            }
+
+        .cloud-status {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.75rem;
+            color: #6b7280;
+            margin-top: 8px;
+            padding: 6px 12px;
+            background: #f3f4f6;
+            border-radius: 8px;
+        }
+
+            .cloud-status .dot {
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+                display: inline-block;
+            }
+
+                .cloud-status .dot.online {
+                    background: #16a34a;
+                }
+
+                .cloud-status .dot.offline {
+                    background: #dc2626;
+                }
     </style>
 </head>
 <body>
 
-    <div class="card">
-        <div class="card-title">
-            <span class="icon">📸</span> 图片上传
-            <span class="count-badge" id="countBadge">0 / 6</span>
-        </div>
-
-        <!-- ===== 选择文件区域 ===== -->
-        <div class="file-select-area" id="fileSelectArea">
-            <span style="font-size:1.5rem;">📁</span>
-            <span class="file-info" id="fileInfo">
-                <span class="file-name" id="fileNameDisplay">未选择文件</span>
-                <span id="fileSizeDisplay"></span>
-            </span>
-            <button class="btn btn-secondary" id="selectBtn" style="min-height:40px; padding:8px 16px; font-size:0.85rem; flex-shrink:0;">
-                选择
-            </button>
-        </div>
-
-        <input type="file" id="fileInput" accept="image/*" />
-
-        <!-- ===== 上传按钮 ===== -->
-        <button class="btn btn-primary btn-block" id="uploadBtn" disabled>
-            ⬆️ 上传到图床
-        </button>
-
-        <!-- ===== 进度条 ===== -->
-        <div class="progress-bar" id="progressBar">
-            <div class="progress-fill" id="progressFill"></div>
-        </div>
-
-        <!-- ===== 状态显示 ===== -->
-        <div class="status-box idle show" id="statusBox">
-            <span class="status-icon">💡</span>
-            <span id="statusText">请选择一张图片</span>
-        </div>
-
-        <!-- ===== 上传结果详情 ===== -->
-        <div class="result-detail" id="resultDetail"></div>
-
-        <!-- ===== 预览网格 ===== -->
-        <div class="preview-grid" id="previewGrid">
-            <div class="preview-item" data-index="0">
-                <span class="empty-text">空</span>
-            </div>
-            <div class="preview-item" data-index="1">
-                <span class="empty-text">空</span>
-            </div>
-            <div class="preview-item" data-index="2">
-                <span class="empty-text">空</span>
-            </div>
-            <div class="preview-item" data-index="3">
-                <span class="empty-text">空</span>
-            </div>
-            <div class="preview-item" data-index="4">
-                <span class="empty-text">空</span>
-            </div>
-            <div class="preview-item" data-index="5">
-                <span class="empty-text">空</span>
-            </div>
-        </div>
-
-        <!-- ===== 图片信息 ===== -->
-        <div class="image-info" id="imageInfo">
-            <div class="info-row">
-                <span class="label">📷 图片链接</span>
-                <span class="value" id="imgUrl">-</span>
-            </div>
-            <div class="info-row">
-                <span class="label">📏 尺寸</span>
-                <span class="value" id="imgSize">-</span>
-            </div>
-            <div class="info-row">
-                <span class="label">📁 文件名</span>
-                <span class="value" id="imgName">-</span>
-            </div>
-            <div class="info-row">
-                <span class="label">✅ 上传状态</span>
-                <span class="value" id="uploadStatus">-</span>
-            </div>
-        </div>
-
-        <!-- ===== 操作按钮 ===== -->
-        <div class="btn-group">
-            <button class="btn btn-danger" id="clearBtn">🗑️ 清空</button>
-            <button class="btn btn-secondary" id="copyAllBtn" style="display:none;">📋 复制链接</button>
-        </div>
-        <a href="index.html" class="back-link">←返回首页</a>
-        <div class="footer-tip">
-            💡 先选择图片，点击"上传到图床"按钮
-            <br />
-            上传成功后会显示 ✅ 检测结果
+    <div class="hero-image">
+        <div class="overlay">
+            <h1>📸 上传纹样</h1>
+            <p>蜡染纹样 · 云端同步</p>
         </div>
     </div>
 
+    <div class="container" style="padding:0;">
+
+        <a href="services.html" class="back-link">← 返回资源库</a>
+
+        <div class="card">
+            <div class="card-title">
+                <span class="icon">📤</span> 上传图片
+                <span class="count-badge" id="countBadge">0 / 6</span>
+            </div>
+
+            <div class="cloud-status">
+                <span class="dot online" id="cloudDot"></span>
+                <span id="cloudStatusText">☁️ 云端已连接</span>
+            </div>
+
+            <div class="file-select-area" id="fileSelectArea">
+                <span style="font-size:1.5rem;">📁</span>
+                <span class="file-info" id="fileInfo">
+                    <span class="file-name" id="fileNameDisplay">未选择文件</span>
+                    <span id="fileSizeDisplay"></span>
+                </span>
+                <button class="btn btn-secondary" id="selectBtn" style="min-height:40px; padding:8px 16px; font-size:0.85rem; flex-shrink:0;">选择</button>
+            </div>
+
+            <input type="file" id="fileInput" accept="image/*" />
+
+            <button class="btn btn-primary btn-block" id="uploadBtn" disabled>⬆️ 上传到图床</button>
+
+            <div class="progress-bar" id="progressBar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+
+            <div class="status-box idle show" id="statusBox">
+                <span class="status-icon">💡</span>
+                <span id="statusText">请选择一张图片</span>
+            </div>
+
+            <div class="result-detail" id="resultDetail"></div>
+
+            <div class="preview-grid" id="previewGrid">
+                <div class="preview-item" data-index="0"><span class="empty-text">空</span></div>
+                <div class="preview-item" data-index="1"><span class="empty-text">空</span></div>
+                <div class="preview-item" data-index="2"><span class="empty-text">空</span></div>
+                <div class="preview-item" data-index="3"><span class="empty-text">空</span></div>
+                <div class="preview-item" data-index="4"><span class="empty-text">空</span></div>
+                <div class="preview-item" data-index="5"><span class="empty-text">空</span></div>
+            </div>
+
+            <div class="btn-group">
+                <button class="btn btn-danger" id="clearBtn">🗑️ 清空</button>
+                <button class="btn btn-secondary" id="copyAllBtn" style="display:none;">📋 复制链接</button>
+            </div>
+
+            <div class="footer-tip">💡 上传后自动同步到云端，所有设备可查看</div>
+        </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
     <script>
         // ============================================================
-        // ✅ 已配置 API Key
+        // ✅ 新 Bin ID 配置
         // ============================================================
         const API_KEY = '0ea23939f1d10b379f977422b6b9658a';
+        const BIN_ID = '6a6a1c77da38895dfea04a9c';
+        const JSONBIN_KEY = '$2a$10$Zg02sHzfAK.F/xlvECOq1uOPkJrNLAPj7aBVmM8d.YMsvq4j.apUm';
+        const BIN_URL = `https://api.jsonbin.io/v3/b/${BIN_ID}`;
 
-        // ===== DOM 引用 =====
+        // ============================================================
+        // DOM 引用
+        // ============================================================
         const selectBtn = document.getElementById('selectBtn');
         const fileInput = document.getElementById('fileInput');
         const uploadBtn = document.getElementById('uploadBtn');
         const clearBtn = document.getElementById('clearBtn');
         const copyAllBtn = document.getElementById('copyAllBtn');
-        const fileInfo = document.getElementById('fileInfo');
         const fileNameDisplay = document.getElementById('fileNameDisplay');
         const fileSizeDisplay = document.getElementById('fileSizeDisplay');
         const previewGrid = document.getElementById('previewGrid');
@@ -518,20 +522,29 @@
         const statusText = document.getElementById('statusText');
         const progressBar = document.getElementById('progressBar');
         const progressFill = document.getElementById('progressFill');
-        const imageInfo = document.getElementById('imageInfo');
-        const imgUrl = document.getElementById('imgUrl');
-        const imgSize = document.getElementById('imgSize');
-        const imgName = document.getElementById('imgName');
-        const uploadStatus = document.getElementById('uploadStatus');
-        const countBadge = document.getElementById('countBadge');
         const resultDetail = document.getElementById('resultDetail');
+        const countBadge = document.getElementById('countBadge');
+        const toast = document.getElementById('toast');
+        const cloudStatusText = document.getElementById('cloudStatusText');
+        const cloudDot = document.getElementById('cloudDot');
 
-        // ===== 数据 =====
         let uploadedImages = [];
         let selectedFile = null;
         let isUploading = false;
 
-        // ===== 工具 =====
+        // ============================================================
+        // Toast
+        // ============================================================
+        function showToast(msg) {
+            toast.textContent = msg;
+            toast.classList.add('show');
+            clearTimeout(toast._timer);
+            toast._timer = setTimeout(() => { toast.classList.remove('show'); }, 2500);
+        }
+
+        // ============================================================
+        // 工具
+        // ============================================================
         function formatSize(bytes) {
             if (bytes < 1024) return bytes + ' B';
             if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
@@ -542,7 +555,9 @@
             countBadge.textContent = uploadedImages.length + ' / 6';
         }
 
-        // ===== 设置状态 =====
+        // ============================================================
+        // 状态
+        // ============================================================
         function setStatus(message, type, icon) {
             statusBox.className = 'status-box show ' + type;
             statusText.textContent = message;
@@ -556,7 +571,6 @@
             statusBox.querySelector('.status-icon').textContent = '💡';
         }
 
-        // ===== 进度条 =====
         function showProgress(percent) {
             progressBar.classList.add('show');
             progressFill.style.width = percent + '%';
@@ -567,7 +581,76 @@
             progressFill.style.width = '0%';
         }
 
-        // ===== 渲染预览 =====
+        // ============================================================
+        // 云端同步
+        // ============================================================
+        async function syncToCloud(imageList) {
+            try {
+                cloudStatusText.textContent = '☁️ 正在同步...';
+                cloudDot.className = 'dot online';
+
+                // 先读取云端现有数据
+                const getRes = await fetch(BIN_URL, {
+                    headers: {
+                        'X-Master-Key': JSONBIN_KEY,
+                        'Cache-Control': 'no-cache'
+                    }
+                });
+
+                let existing = [];
+                if (getRes.ok) {
+                    const data = await getRes.json();
+                    existing = data.record?.images || [];
+                    console.log('📥 云端现有图片:', existing.length, '张');
+                } else {
+                    console.warn('⚠️ 读取云端失败，将创建新数据');
+                }
+
+                // 合并去重
+                const all = [...existing, ...imageList];
+                const seen = new Set();
+                const merged = all.filter(img => {
+                    if (!img || !img.url) return false;
+                    if (seen.has(img.url)) return false;
+                    seen.add(img.url);
+                    return true;
+                });
+
+                console.log('📤 准备写入云端:', merged.length, '张图片');
+
+                const putRes = await fetch(BIN_URL, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-Master-Key': JSONBIN_KEY
+                    },
+                    body: JSON.stringify({ images: merged })
+                });
+
+                if (putRes.ok) {
+                    const result = await putRes.json();
+                    console.log('✅ 同步成功:', result);
+                    cloudDot.className = 'dot online';
+                    cloudStatusText.textContent = '☁️ 已同步 (' + merged.length + ' 张)';
+                    return true;
+                } else {
+                    const err = await putRes.text();
+                    console.error('❌ 同步失败:', putRes.status, err);
+                    cloudDot.className = 'dot offline';
+                    cloudStatusText.textContent = '⚠️ 同步失败 (' + putRes.status + ')';
+                    return false;
+                }
+            } catch (e) {
+                console.error('❌ 同步异常:', e);
+                cloudDot.className = 'dot offline';
+                cloudStatusText.textContent = '⚠️ 网络异常';
+                return false;
+            }
+        }
+
+        // ============================================================
+        // 渲染预览
+        // ============================================================
         function renderPreview() {
             const items = previewGrid.querySelectorAll('.preview-item');
             items.forEach((item, index) => {
@@ -591,36 +674,20 @@
 
             copyAllBtn.style.display = uploadedImages.length > 0 ? 'block' : 'none';
             updateCount();
-            imageInfo.classList.remove('show');
             resultDetail.classList.remove('show');
         }
 
-        // ===== 点击预览查看信息 =====
-        previewGrid.addEventListener('click', function (e) {
-            const item = e.target.closest('.preview-item');
-            if (!item) return;
-            const index = parseInt(item.dataset.index);
-            if (index < uploadedImages.length) {
-                const img = uploadedImages[index];
-                imgUrl.innerHTML = `<a href="${img.url}" target="_blank">${img.url}</a>`;
-                imgSize.textContent = img.width + ' × ' + img.height + ' (' + formatSize(img.size) + ')';
-                imgName.textContent = img.name;
-                uploadStatus.innerHTML = `<span class="check-mark">✅ 上传成功</span>`;
-                imageInfo.classList.add('show');
-            }
-        });
-
-        // ===== 删除图片 =====
+        // ============================================================
+        // 删除
+        // ============================================================
         function deleteImage(index) {
             uploadedImages.splice(index, 1);
             renderPreview();
-            if (uploadedImages.length === 0) {
-                imageInfo.classList.remove('show');
-                resetStatus();
-            }
+            if (uploadedImages.length === 0) resetStatus();
+            syncToCloud([]);
+            showToast('🗑️ 已删除');
         }
 
-        // ===== 清空 =====
         function clearAll() {
             if (uploadedImages.length === 0 && !selectedFile) return;
             if (confirm('确定要清空所有图片吗？')) {
@@ -631,14 +698,17 @@
                 fileSizeDisplay.textContent = '';
                 uploadBtn.disabled = true;
                 renderPreview();
-                imageInfo.classList.remove('show');
                 resultDetail.classList.remove('show');
                 resetStatus();
                 hideProgress();
+                syncToCloud([]);
+                showToast('🗑️ 已清空');
             }
         }
 
-        // ===== 上传到 ImgBB =====
+        // ============================================================
+        // 上传到 ImgBB
+        // ============================================================
         function uploadToImgBB(file) {
             return new Promise((resolve, reject) => {
                 const formData = new FormData();
@@ -650,8 +720,7 @@
 
                 xhr.upload.onprogress = function (e) {
                     if (e.lengthComputable) {
-                        const percent = Math.round((e.loaded / e.total) * 100);
-                        showProgress(percent);
+                        showProgress(Math.round((e.loaded / e.total) * 100));
                     }
                 };
 
@@ -681,14 +750,16 @@
                 };
 
                 xhr.onerror = function () {
-                    reject(new Error('网络连接失败，请检查网络'));
+                    reject(new Error('网络连接失败'));
                 };
 
                 xhr.send(formData);
             });
         }
 
-        // ===== 检测上传是否成功 =====
+        // ============================================================
+        // 验证上传
+        // ============================================================
         async function verifyUpload(url) {
             try {
                 const response = await fetch(url, { method: 'HEAD' });
@@ -698,64 +769,56 @@
             }
         }
 
-        // ===== 执行上传 =====
+        // ============================================================
+        // 执行上传
+        // ============================================================
         async function handleUpload() {
             if (!selectedFile) {
                 setStatus('请先选择一张图片', 'error', '❌');
                 return;
             }
-
             if (isUploading) return;
-
-            // 检查剩余容量
             if (uploadedImages.length >= 6) {
                 setStatus('最多上传 6 张图片', 'error', '❌');
                 return;
             }
-
-            // 检查文件类型
             if (!selectedFile.type.startsWith('image/')) {
                 setStatus('请选择图片文件', 'error', '❌');
                 return;
             }
-
-            // 检查文件大小 (5MB)
             if (selectedFile.size > 50 * 1024 * 1024) {
                 setStatus('图片超过 50MB，请压缩后重试', 'error', '❌');
                 return;
             }
 
-            // 开始上传
             isUploading = true;
             uploadBtn.disabled = true;
             uploadBtn.textContent = '⏳ 上传中...';
-
             setStatus('⏳ 正在上传到图床...', 'loading', '⏳');
 
             try {
-                // 上传
                 const result = await uploadToImgBB(selectedFile);
-
-                // 检测上传是否成功（二次验证）
                 setStatus('⏳ 正在检测上传结果...', 'loading', '⏳');
-
                 const isVerified = await verifyUpload(result.url);
 
                 if (isVerified) {
-                    // 上传成功
                     uploadedImages.push(result);
                     renderPreview();
 
-                    // 显示成功信息
-                    setStatus('✅ 上传成功！图片已保存到图床', 'success', '✅');
+                    setStatus('⏳ 正在同步到云端...', 'loading', '⏳');
+                    const synced = await syncToCloud([result]);
 
-                    // 显示详情
+                    if (synced) {
+                        setStatus('✅ 上传成功！已同步到云端', 'success', '✅');
+                        showToast('✅ 图片已上传并同步到云端');
+                    } else {
+                        setStatus('⚠️ 上传成功，但云端同步失败', 'error', '⚠️');
+                        showToast('⚠️ 图片已上传，但云端同步失败，请稍后重试');
+                    }
+
                     showResultDetail(true, result);
-
-                    // 启用复制按钮
                     copyAllBtn.style.display = 'block';
 
-                    // 清空选择
                     selectedFile = null;
                     fileInput.value = '';
                     fileNameDisplay.textContent = '未选择文件';
@@ -763,16 +826,12 @@
                     uploadBtn.disabled = true;
                     uploadBtn.textContent = '⬆️ 上传到图床';
 
-                    // 自动显示图片信息
-                    imgUrl.innerHTML = `<a href="${result.url}" target="_blank">${result.url}</a>`;
-                    imgSize.textContent = result.width + ' × ' + result.height + ' (' + formatSize(result.size) + ')';
-                    imgName.textContent = result.name;
-                    uploadStatus.innerHTML = `<span class="check-mark">✅ 上传成功 (已验证)</span>`;
-                    imageInfo.classList.add('show');
+                    setTimeout(() => {
+                        window.location.href = 'gallery.html?img=' + encodeURIComponent(JSON.stringify(result));
+                    }, 1500);
 
                 } else {
-                    // 验证失败
-                    setStatus('⚠️ 上传成功但验证失败，请检查链接', 'error', '⚠️');
+                    setStatus('⚠️ 上传成功但验证失败', 'error', '⚠️');
                     showResultDetail(false, null, '验证失败：图片无法访问');
                 }
 
@@ -788,70 +847,47 @@
             hideProgress();
         }
 
-        // ===== 显示上传结果详情 =====
+        // ============================================================
+        // 显示结果
+        // ============================================================
         function showResultDetail(success, result, errorMsg) {
             resultDetail.classList.add('show');
             if (success && result) {
                 resultDetail.innerHTML = `
-                        <div style="font-weight:600; margin-bottom:6px; color:#16a34a;">✅ 上传检测结果</div>
-                        <div class="detail-item">
-                            <span>📤 上传状态</span>
-                            <span class="ok">✅ 成功</span>
-                        </div>
-                        <div class="detail-item">
-                            <span>🔍 二次验证</span>
-                            <span class="ok">✅ 通过</span>
-                        </div>
-                        <div class="detail-item">
-                            <span>📷 图片尺寸</span>
-                            <span>${result.width} × ${result.height}</span>
-                        </div>
-                        <div class="detail-item">
-                            <span>📦 文件大小</span>
-                            <span>${formatSize(result.size)}</span>
-                        </div>
-                        <div class="detail-item">
-                            <span>📎 文件名称</span>
-                            <span>${result.name}</span>
-                        </div>
+                        <div style="font-weight:600; margin-bottom:6px; color:#16a34a;">✅ 上传成功</div>
+                        <div class="detail-item"><span>📷 图片尺寸</span><span>${result.width} × ${result.height}</span></div>
+                        <div class="detail-item"><span>📦 文件大小</span><span>${formatSize(result.size)}</span></div>
+                        <div class="detail-item"><span>📎 文件名称</span><span>${result.name}</span></div>
+                        <div class="detail-item"><span>☁️ 云端同步</span><span class="ok">✅ 已同步</span></div>
+                        <div class="detail-item"><span>🔗 图片链接</span><span style="font-size:0.7rem;word-break:break-all;"><a href="${result.url}" target="_blank">${result.url}</a></span></div>
                     `;
             } else {
                 resultDetail.innerHTML = `
-                        <div style="font-weight:600; margin-bottom:6px; color:#dc2626;">❌ 上传检测结果</div>
-                        <div class="detail-item">
-                            <span>📤 上传状态</span>
-                            <span class="fail">❌ 失败</span>
-                        </div>
-                        <div class="detail-item">
-                            <span>🔍 错误信息</span>
-                            <span class="fail">${errorMsg || '未知错误'}</span>
-                        </div>
-                        <div class="detail-item">
-                            <span>💡 建议</span>
-                            <span>请检查网络后重试</span>
-                        </div>
+                        <div style="font-weight:600; margin-bottom:6px; color:#dc2626;">❌ 上传失败</div>
+                        <div class="detail-item"><span>🔍 错误信息</span><span class="fail">${errorMsg || '未知错误'}</span></div>
                     `;
             }
         }
 
-        // ===== 选择文件 =====
+        // ============================================================
+        // 选择文件
+        // ============================================================
         function selectFile() {
             if (isUploading) return;
             fileInput.click();
         }
 
-        // ===== 复制链接 =====
+        // ============================================================
+        // 复制链接
+        // ============================================================
         function copyAllUrls() {
             const urls = uploadedImages.map(img => img.url).join('\n');
             if (!urls) return;
-
             if (navigator.clipboard && navigator.clipboard.writeText) {
                 navigator.clipboard.writeText(urls).then(() => {
                     setStatus('✅ 已复制 ' + uploadedImages.length + ' 个链接', 'success', '✅');
                     setTimeout(resetStatus, 2000);
-                }).catch(() => {
-                    fallbackCopy(urls);
-                });
+                }).catch(() => fallbackCopy(urls));
             } else {
                 fallbackCopy(urls);
             }
@@ -874,7 +910,14 @@
             document.body.removeChild(textarea);
         }
 
-        // ===== 文件选择事件 =====
+        // ============================================================
+        // 事件绑定
+        // ============================================================
+        selectBtn.addEventListener('click', selectFile);
+        uploadBtn.addEventListener('click', handleUpload);
+        clearBtn.addEventListener('click', clearAll);
+        copyAllBtn.addEventListener('click', copyAllUrls);
+
         fileInput.addEventListener('change', function () {
             if (this.files.length > 0) {
                 const file = this.files[0];
@@ -883,10 +926,8 @@
                 fileSizeDisplay.textContent = ' (' + formatSize(file.size) + ')';
                 uploadBtn.disabled = false;
 
-                // 预览选中的图片
                 const reader = new FileReader();
                 reader.onload = function (e) {
-                    // 显示在第一个预览位（临时）
                     const firstItem = previewGrid.querySelector('.preview-item');
                     if (!firstItem.classList.contains('has-image')) {
                         firstItem.innerHTML = `
@@ -897,22 +938,22 @@
                     }
                 };
                 reader.readAsDataURL(file);
-
                 setStatus('📁 已选择: ' + file.name, 'idle', '📁');
             }
         });
 
-        // ===== 事件绑定 =====
-        selectBtn.addEventListener('click', selectFile);
-        uploadBtn.addEventListener('click', handleUpload);
-        clearBtn.addEventListener('click', clearAll);
-        copyAllBtn.addEventListener('click', copyAllUrls);
-
-        // ===== 初始化 =====
+        // ============================================================
+        // 初始化
+        // ============================================================
         renderPreview();
         resetStatus();
+        cloudDot.className = 'dot online';
+        cloudStatusText.textContent = '☁️ 云端已连接';
+
         console.log('📸 按钮上传已启动！');
-        console.log('✅ API Key 已配置');
+        console.log('✅ ImgBB API Key 已配置');
+        console.log('✅ JSONBin 已配置');
+        console.log('📌 JSONBin Bin ID:', BIN_ID);
         console.log('💡 选择图片后点击"上传到图床"按钮');
     </script>
 

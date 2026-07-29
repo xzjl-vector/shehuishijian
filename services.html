@@ -147,6 +147,46 @@
             color: #9ca3af;
             padding: 20px 0 8px;
         }
+
+        /* ===== 上传按钮（新增） ===== */
+        .upload-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            padding: 16px 20px;
+            background: linear-gradient(135deg, #1a6b4a, #2d8f6a);
+            color: #fff;
+            border: none;
+            border-radius: 14px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.15s;
+            -webkit-tap-highlight-color: transparent;
+            text-decoration: none;
+            text-align: center;
+            min-height: 56px;
+            margin-top: 4px;
+        }
+
+            .upload-btn:active {
+                transform: scale(0.97);
+                background: #0b3d2e;
+            }
+
+            .upload-btn .icon {
+                font-size: 1.6rem;
+            }
+
+            .upload-btn .hint {
+                font-size: 0.7rem;
+                font-weight: 400;
+                opacity: 0.8;
+                display: block;
+                margin-top: 2px;
+            }
     </style>
 </head>
 <body>
@@ -160,11 +200,11 @@
 
     <div class="container">
 
-        <a href="index.html" class="back-link">←返回首页</a>
+        <a href="index.html" class="back-link">← 返回首页</a>
 
         <div class="card">
             <div class="card-title">
-                <span class="icon">文本</span> 文本
+                <span class="icon">📚</span> 纹样资源
             </div>
             <p>文本</p>
             <div class="team-list">
@@ -200,9 +240,27 @@
 
         <div class="card">
             <div class="card-title">
-                <span class="icon">文本</span> 文本
+                <span class="icon">📖</span> 文本
             </div>
             <p>文本</p>
+        </div>
+
+        <!-- ===== 图片上传按钮（新增） ===== -->
+        <a href="upload.html" class="upload-btn">
+            <span class="icon">📸</span>
+            <span>
+                上传图片
+                <span class="hint">点击上传蜡染纹样图片</span>
+            </span>
+        </a>
+        <!-- ===== 在卡片下方添加 ===== -->
+        <div class="btn-group" style="margin-top:10px; display:flex; gap:10px;">
+            <a href="upload.html" class="btn btn-primary" style="flex:1; text-align:center; padding:14px; border-radius:14px; background:#1a6b4a; color:#fff; text-decoration:none; font-weight:600;">
+                📤 上传图片
+            </a>
+            <a href="gallery.html" class="btn btn-secondary" style="flex:1; text-align:center; padding:14px; border-radius:14px; background:#2d6b4a; color:#fff; text-decoration:none; font-weight:600;">
+                🖼️ 查看图库
+            </a>
         </div>
 
         <div class="footer-text">北京科技大学 染叙丹青实践小队</div>
@@ -210,5 +268,4 @@
     </div>
 
 </body>
-</html>
 </html>
