@@ -22,7 +22,7 @@
 
         .hero-image {
             width: 100%;
-            height: 120px;
+            height: 100px;
             background: linear-gradient(135deg, #0b3d2e 0%, #1a6b4a 60%, #2d8f6a 100%);
             display: flex;
             align-items: center;
@@ -30,8 +30,8 @@
             color: #fff;
             position: relative;
             overflow: hidden;
-            border-radius: 0 0 30px 30px;
-            margin-bottom: 16px;
+            border-radius: 0 0 24px 24px;
+            margin-bottom: 14px;
         }
 
             .hero-image .overlay {
@@ -39,18 +39,18 @@
                 bottom: 0;
                 left: 0;
                 right: 0;
-                padding: 14px 20px 12px;
+                padding: 12px 20px 10px;
                 background: linear-gradient(transparent, rgba(0,0,0,0.5));
                 text-align: center;
             }
 
                 .hero-image .overlay h1 {
-                    font-size: 1.2rem;
+                    font-size: 1.1rem;
                     font-weight: 700;
                 }
 
                 .hero-image .overlay p {
-                    font-size: 0.75rem;
+                    font-size: 0.7rem;
                     opacity: 0.85;
                 }
 
@@ -61,10 +61,9 @@
             color: #1a6b4a;
             text-decoration: none;
             font-weight: 500;
-            font-size: 0.9rem;
-            margin-bottom: 12px;
-            padding: 8px 0;
-            -webkit-tap-highlight-color: transparent;
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+            padding: 6px 0;
         }
 
             .back-link:active {
@@ -72,39 +71,39 @@
             }
 
         .card {
-            background: #ffffff;
-            border-radius: 16px;
-            padding: 18px;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+            background: #fff;
+            border-radius: 14px;
+            padding: 14px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
             border: 1px solid rgba(0,0,0,0.03);
-            margin-bottom: 14px;
+            margin-bottom: 12px;
         }
 
         .card-title {
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-weight: 600;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             display: flex;
             align-items: center;
             gap: 8px;
         }
 
             .card-title .icon {
-                font-size: 1.2rem;
+                font-size: 1.1rem;
             }
 
         .btn {
             display: inline-block;
-            padding: 14px 20px;
-            border-radius: 14px;
+            padding: 12px 16px;
+            border-radius: 12px;
             border: none;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-weight: 600;
             cursor: pointer;
             transition: 0.15s;
             -webkit-tap-highlight-color: transparent;
             text-align: center;
-            min-height: 52px;
+            min-height: 46px;
             text-decoration: none;
         }
 
@@ -146,8 +145,8 @@
 
         .btn-group {
             display: flex;
-            gap: 10px;
-            margin-top: 12px;
+            gap: 8px;
+            margin-top: 10px;
         }
 
             .btn-group .btn {
@@ -165,15 +164,15 @@
             gap: 10px;
             align-items: center;
             background: #f9fafb;
-            padding: 14px 16px;
+            padding: 12px 14px;
             border-radius: 12px;
             border: 2px dashed #d1d5db;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
             .file-select-area .file-info {
                 flex: 1;
-                font-size: 0.85rem;
+                font-size: 0.8rem;
                 color: #6b7280;
                 overflow: hidden;
                 text-overflow: ellipsis;
@@ -190,13 +189,13 @@
         }
 
         .status-box {
-            padding: 14px 16px;
-            border-radius: 12px;
-            font-size: 0.9rem;
-            margin-top: 12px;
+            padding: 12px 14px;
+            border-radius: 10px;
+            font-size: 0.85rem;
+            margin-top: 10px;
             display: none;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
         }
 
             .status-box.show {
@@ -226,8 +225,8 @@
 
             .status-box .spinner {
                 display: inline-block;
-                width: 20px;
-                height: 20px;
+                width: 18px;
+                height: 18px;
                 border: 3px solid #fef3c7;
                 border-top: 3px solid #92400e;
                 border-radius: 50%;
@@ -246,16 +245,16 @@
         }
 
         .status-box .status-icon {
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             flex-shrink: 0;
         }
 
         .progress-bar {
             width: 100%;
-            height: 6px;
+            height: 4px;
             background: #e5e7eb;
             border-radius: 4px;
-            margin-top: 10px;
+            margin-top: 8px;
             overflow: hidden;
             display: none;
         }
@@ -275,18 +274,18 @@
         .preview-grid {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
-            gap: 10px;
-            margin-top: 14px;
+            gap: 8px;
+            margin-top: 12px;
         }
 
         .preview-item {
             aspect-ratio: 1/1;
-            border-radius: 12px;
+            border-radius: 10px;
             background: #f3f4f6;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             overflow: hidden;
             position: relative;
             border: 2px solid #e5e7eb;
@@ -304,38 +303,34 @@
 
             .preview-item .empty-text {
                 color: #9ca3af;
-                font-size: 0.7rem;
+                font-size: 0.65rem;
             }
 
             .preview-item .delete-btn {
                 position: absolute;
-                top: 6px;
-                right: 6px;
+                top: 4px;
+                right: 4px;
                 background: rgba(220,38,38,0.92);
                 color: #fff;
                 border: none;
                 border-radius: 50%;
-                width: 32px;
-                height: 32px;
-                font-size: 1rem;
+                width: 26px;
+                height: 26px;
+                font-size: 0.8rem;
                 cursor: pointer;
                 display: none;
-                box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+                box-shadow: 0 2px 6px rgba(0,0,0,0.2);
             }
 
             .preview-item.has-image .delete-btn {
                 display: block;
             }
 
-            .preview-item .delete-btn:active {
-                transform: scale(0.85);
-            }
-
         .result-detail {
             margin-top: 10px;
-            padding: 12px 14px;
-            border-radius: 12px;
-            font-size: 0.85rem;
+            padding: 10px 14px;
+            border-radius: 10px;
+            font-size: 0.8rem;
             display: none;
         }
 
@@ -346,7 +341,7 @@
             .result-detail .detail-item {
                 display: flex;
                 justify-content: space-between;
-                padding: 4px 0;
+                padding: 3px 0;
                 border-bottom: 1px solid #e5e7eb;
             }
 
@@ -364,32 +359,32 @@
 
         .footer-tip {
             text-align: center;
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             color: #9ca3af;
-            padding: 8px 0;
+            padding: 6px 0;
         }
 
         .count-badge {
             display: inline-block;
             background: #d1fae5;
             color: #065f46;
-            padding: 2px 14px;
+            padding: 2px 12px;
             border-radius: 20px;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-weight: 400;
             margin-left: auto;
         }
 
         .toast {
             position: fixed;
-            bottom: 80px;
+            bottom: 70px;
             left: 50%;
             transform: translateX(-50%);
-            background: rgba(0,0,0,0.8);
+            background: rgba(0,0,0,0.85);
             color: #fff;
-            padding: 10px 24px;
-            border-radius: 12px;
-            font-size: 0.85rem;
+            padding: 8px 20px;
+            border-radius: 10px;
+            font-size: 0.8rem;
             z-index: 300;
             opacity: 0;
             transition: opacity 0.3s;
@@ -406,17 +401,17 @@
             display: flex;
             align-items: center;
             gap: 6px;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             color: #6b7280;
-            margin-top: 8px;
-            padding: 6px 12px;
+            padding: 4px 10px;
             background: #f3f4f6;
-            border-radius: 8px;
+            border-radius: 6px;
+            margin-bottom: 8px;
         }
 
             .cloud-status .dot {
-                width: 8px;
-                height: 8px;
+                width: 6px;
+                height: 6px;
                 border-radius: 50%;
                 display: inline-block;
             }
@@ -455,12 +450,12 @@
             </div>
 
             <div class="file-select-area" id="fileSelectArea">
-                <span style="font-size:1.5rem;">📁</span>
+                <span style="font-size:1.3rem;">📁</span>
                 <span class="file-info" id="fileInfo">
                     <span class="file-name" id="fileNameDisplay">未选择文件</span>
                     <span id="fileSizeDisplay"></span>
                 </span>
-                <button class="btn btn-secondary" id="selectBtn" style="min-height:40px; padding:8px 16px; font-size:0.85rem; flex-shrink:0;">选择</button>
+                <button class="btn btn-secondary" id="selectBtn" style="min-height:36px; padding:6px 14px; font-size:0.8rem; flex-shrink:0;">选择</button>
             </div>
 
             <input type="file" id="fileInput" accept="image/*" />
@@ -500,7 +495,7 @@
 
     <script>
         // ============================================================
-        // ✅ 新 Bin ID 配置
+        // ✅ 配置
         // ============================================================
         const API_KEY = '0ea23939f1d10b379f977422b6b9658a';
         const BIN_ID = '6a6a1c77da38895dfea04a9c';
@@ -508,7 +503,7 @@
         const BIN_URL = `https://api.jsonbin.io/v3/b/${BIN_ID}`;
 
         // ============================================================
-        // DOM 引用
+        // DOM
         // ============================================================
         const selectBtn = document.getElementById('selectBtn');
         const fileInput = document.getElementById('fileInput');
@@ -532,9 +527,6 @@
         let selectedFile = null;
         let isUploading = false;
 
-        // ============================================================
-        // Toast
-        // ============================================================
         function showToast(msg) {
             toast.textContent = msg;
             toast.classList.add('show');
@@ -542,9 +534,6 @@
             toast._timer = setTimeout(() => { toast.classList.remove('show'); }, 2500);
         }
 
-        // ============================================================
-        // 工具
-        // ============================================================
         function formatSize(bytes) {
             if (bytes < 1024) return bytes + ' B';
             if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
@@ -555,9 +544,6 @@
             countBadge.textContent = uploadedImages.length + ' / 6';
         }
 
-        // ============================================================
-        // 状态
-        // ============================================================
         function setStatus(message, type, icon) {
             statusBox.className = 'status-box show ' + type;
             statusText.textContent = message;
@@ -582,14 +568,14 @@
         }
 
         // ============================================================
-        // 云端同步
+        // 云端同步（修复版 - 强制写入）
         // ============================================================
         async function syncToCloud(imageList) {
             try {
                 cloudStatusText.textContent = '☁️ 正在同步...';
                 cloudDot.className = 'dot online';
 
-                // 先读取云端现有数据
+                // 1. 先读取云端现有数据
                 const getRes = await fetch(BIN_URL, {
                     headers: {
                         'X-Master-Key': JSONBIN_KEY,
@@ -601,12 +587,12 @@
                 if (getRes.ok) {
                     const data = await getRes.json();
                     existing = data.record?.images || [];
-                    console.log('📥 云端现有图片:', existing.length, '张');
+                    console.log('📥 云端现有:', existing.length, '张');
                 } else {
                     console.warn('⚠️ 读取云端失败，将创建新数据');
                 }
 
-                // 合并去重
+                // 2. 合并去重（云端 + 新图片）
                 const all = [...existing, ...imageList];
                 const seen = new Set();
                 const merged = all.filter(img => {
@@ -616,8 +602,9 @@
                     return true;
                 });
 
-                console.log('📤 准备写入云端:', merged.length, '张图片');
+                console.log('📤 准备写入云端:', merged.length, '张');
 
+                // 3. 写入云端
                 const putRes = await fetch(BIN_URL, {
                     method: 'PUT',
                     headers: {
@@ -632,6 +619,12 @@
                     console.log('✅ 同步成功:', result);
                     cloudDot.className = 'dot online';
                     cloudStatusText.textContent = '☁️ 已同步 (' + merged.length + ' 张)';
+
+                    // 同时保存到本地 localStorage
+                    try {
+                        localStorage.setItem('wax_image_list', JSON.stringify(merged));
+                    } catch (e) { }
+
                     return true;
                 } else {
                     const err = await putRes.text();
@@ -787,7 +780,7 @@
                 return;
             }
             if (selectedFile.size > 50 * 1024 * 1024) {
-                setStatus('图片超过 50MB，请压缩后重试', 'error', '❌');
+                setStatus('图片超过 50MB', 'error', '❌');
                 return;
             }
 
@@ -805,6 +798,7 @@
                     uploadedImages.push(result);
                     renderPreview();
 
+                    // ===== 关键：同步到云端 =====
                     setStatus('⏳ 正在同步到云端...', 'loading', '⏳');
                     const synced = await syncToCloud([result]);
 
@@ -826,13 +820,14 @@
                     uploadBtn.disabled = true;
                     uploadBtn.textContent = '⬆️ 上传到图床';
 
+                    // 跳转到展示页
                     setTimeout(() => {
                         window.location.href = 'gallery.html?img=' + encodeURIComponent(JSON.stringify(result));
                     }, 1500);
 
                 } else {
                     setStatus('⚠️ 上传成功但验证失败', 'error', '⚠️');
-                    showResultDetail(false, null, '验证失败：图片无法访问');
+                    showResultDetail(false, null, '验证失败');
                 }
 
             } catch (error) {
@@ -847,39 +842,29 @@
             hideProgress();
         }
 
-        // ============================================================
-        // 显示结果
-        // ============================================================
         function showResultDetail(success, result, errorMsg) {
             resultDetail.classList.add('show');
             if (success && result) {
                 resultDetail.innerHTML = `
-                        <div style="font-weight:600; margin-bottom:6px; color:#16a34a;">✅ 上传成功</div>
-                        <div class="detail-item"><span>📷 图片尺寸</span><span>${result.width} × ${result.height}</span></div>
-                        <div class="detail-item"><span>📦 文件大小</span><span>${formatSize(result.size)}</span></div>
-                        <div class="detail-item"><span>📎 文件名称</span><span>${result.name}</span></div>
+                        <div style="font-weight:600; margin-bottom:4px; color:#16a34a;">✅ 上传成功</div>
+                        <div class="detail-item"><span>📷 尺寸</span><span>${result.width} × ${result.height}</span></div>
+                        <div class="detail-item"><span>📦 大小</span><span>${formatSize(result.size)}</span></div>
                         <div class="detail-item"><span>☁️ 云端同步</span><span class="ok">✅ 已同步</span></div>
-                        <div class="detail-item"><span>🔗 图片链接</span><span style="font-size:0.7rem;word-break:break-all;"><a href="${result.url}" target="_blank">${result.url}</a></span></div>
+                        <div class="detail-item"><span>🔗 链接</span><span style="font-size:0.65rem;word-break:break-all;"><a href="${result.url}" target="_blank">查看</a></span></div>
                     `;
             } else {
                 resultDetail.innerHTML = `
-                        <div style="font-weight:600; margin-bottom:6px; color:#dc2626;">❌ 上传失败</div>
-                        <div class="detail-item"><span>🔍 错误信息</span><span class="fail">${errorMsg || '未知错误'}</span></div>
+                        <div style="font-weight:600; margin-bottom:4px; color:#dc2626;">❌ 上传失败</div>
+                        <div class="detail-item"><span>🔍 错误</span><span class="fail">${errorMsg || '未知错误'}</span></div>
                     `;
             }
         }
 
-        // ============================================================
-        // 选择文件
-        // ============================================================
         function selectFile() {
             if (isUploading) return;
             fileInput.click();
         }
 
-        // ============================================================
-        // 复制链接
-        // ============================================================
         function copyAllUrls() {
             const urls = uploadedImages.map(img => img.url).join('\n');
             if (!urls) return;
@@ -932,7 +917,7 @@
                     if (!firstItem.classList.contains('has-image')) {
                         firstItem.innerHTML = `
                                 <img src="${e.target.result}" alt="预览" loading="lazy" style="opacity:0.6;" />
-                                <span style="position:absolute; bottom:4px; font-size:0.6rem; background:rgba(0,0,0,0.5); color:#fff; padding:0 10px; border-radius:10px;">待上传</span>
+                                <span style="position:absolute; bottom:4px; font-size:0.5rem; background:rgba(0,0,0,0.6); color:#fff; padding:0 8px; border-radius:8px;">待上传</span>
                             `;
                         firstItem.classList.add('has-image');
                     }
@@ -950,11 +935,8 @@
         cloudDot.className = 'dot online';
         cloudStatusText.textContent = '☁️ 云端已连接';
 
-        console.log('📸 按钮上传已启动！');
-        console.log('✅ ImgBB API Key 已配置');
-        console.log('✅ JSONBin 已配置');
-        console.log('📌 JSONBin Bin ID:', BIN_ID);
-        console.log('💡 选择图片后点击"上传到图床"按钮');
+        console.log('📸 上传已启动');
+        console.log('📌 Bin ID:', BIN_ID);
     </script>
 
 </body>

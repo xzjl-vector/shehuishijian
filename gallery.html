@@ -22,7 +22,7 @@
 
         .hero-image {
             width: 100%;
-            height: 120px;
+            height: 100px;
             background: linear-gradient(135deg, #0b3d2e 0%, #1a6b4a 60%, #2d8f6a 100%);
             display: flex;
             align-items: center;
@@ -30,8 +30,8 @@
             color: #fff;
             position: relative;
             overflow: hidden;
-            border-radius: 0 0 30px 30px;
-            margin-bottom: 16px;
+            border-radius: 0 0 24px 24px;
+            margin-bottom: 14px;
         }
 
             .hero-image .overlay {
@@ -39,18 +39,18 @@
                 bottom: 0;
                 left: 0;
                 right: 0;
-                padding: 14px 20px 12px;
-                background: linear-gradient(transparent, rgba(0, 0, 0, 0.5));
+                padding: 12px 20px 10px;
+                background: linear-gradient(transparent, rgba(0,0,0,0.5));
                 text-align: center;
             }
 
                 .hero-image .overlay h1 {
-                    font-size: 1.2rem;
+                    font-size: 1.1rem;
                     font-weight: 700;
                 }
 
                 .hero-image .overlay p {
-                    font-size: 0.75rem;
+                    font-size: 0.7rem;
                     opacity: 0.85;
                 }
 
@@ -61,10 +61,9 @@
             color: #1a6b4a;
             text-decoration: none;
             font-weight: 500;
-            font-size: 0.9rem;
-            margin-bottom: 12px;
-            padding: 8px 0;
-            -webkit-tap-highlight-color: transparent;
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+            padding: 6px 0;
         }
 
             .back-link:active {
@@ -72,18 +71,18 @@
             }
 
         .card {
-            background: #ffffff;
-            border-radius: 16px;
-            padding: 18px;
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
-            border: 1px solid rgba(0, 0, 0, 0.03);
-            margin-bottom: 14px;
+            background: #fff;
+            border-radius: 14px;
+            padding: 14px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            border: 1px solid rgba(0,0,0,0.03);
+            margin-bottom: 12px;
         }
 
         .card-title {
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-weight: 600;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -91,113 +90,89 @@
         }
 
             .card-title .count {
-                font-size: 0.75rem;
+                font-size: 0.7rem;
                 font-weight: 400;
                 color: #6b7280;
                 background: #f3f4f6;
-                padding: 2px 14px;
+                padding: 2px 12px;
                 border-radius: 20px;
             }
 
         .gallery-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 6px;
         }
 
         .gallery-item {
-            aspect-ratio: 1 / 1;
-            border-radius: 12px;
+            aspect-ratio: 1/1;
+            border-radius: 10px;
             overflow: hidden;
             background: #f3f4f6;
             position: relative;
             border: 2px solid #e5e7eb;
-            transition: 0.2s;
+            transition: 0.15s;
             cursor: pointer;
         }
 
             .gallery-item:active {
-                transform: scale(0.97);
+                transform: scale(0.95);
             }
 
             .gallery-item img {
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
+                display: block;
             }
 
             .gallery-item .img-index {
                 position: absolute;
-                bottom: 6px;
-                left: 6px;
-                background: rgba(0, 0, 0, 0.6);
+                bottom: 4px;
+                left: 4px;
+                background: rgba(0,0,0,0.6);
                 color: #fff;
-                font-size: 0.6rem;
-                padding: 2px 10px;
-                border-radius: 12px;
-            }
-
-            .gallery-item .delete-btn {
-                position: absolute;
-                top: 6px;
-                right: 6px;
-                background: rgba(220, 38, 38, 0.9);
-                color: #fff;
-                border: none;
-                border-radius: 50%;
-                width: 28px;
-                height: 28px;
-                font-size: 0.85rem;
-                cursor: pointer;
-                box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-                display: none;
-                z-index: 5;
-            }
-
-            .gallery-item:hover .delete-btn {
-                display: block;
-            }
-
-            .gallery-item .delete-btn:active {
-                transform: scale(0.85);
+                font-size: 0.5rem;
+                padding: 1px 8px;
+                border-radius: 10px;
             }
 
         .empty-state {
             text-align: center;
-            padding: 40px 20px;
+            padding: 30px 20px;
             color: #9ca3af;
         }
 
             .empty-state .icon {
-                font-size: 3rem;
+                font-size: 2.5rem;
                 display: block;
-                margin-bottom: 10px;
+                margin-bottom: 8px;
             }
 
             .empty-state .text {
-                font-size: 0.95rem;
+                font-size: 0.9rem;
             }
 
             .empty-state .hint {
-                font-size: 0.8rem;
+                font-size: 0.75rem;
                 margin-top: 4px;
             }
 
         .loading-state {
             text-align: center;
-            padding: 40px 20px;
+            padding: 30px 20px;
             color: #6b7280;
         }
 
             .loading-state .spinner {
                 display: inline-block;
-                width: 36px;
-                height: 36px;
-                border: 4px solid #e5e7eb;
-                border-top: 4px solid #1a6b4a;
+                width: 30px;
+                height: 30px;
+                border: 3px solid #e5e7eb;
+                border-top: 3px solid #1a6b4a;
                 border-radius: 50%;
                 animation: spin 0.8s linear infinite;
-                margin-bottom: 10px;
+                margin-bottom: 8px;
             }
 
         @keyframes spin {
@@ -212,16 +187,16 @@
 
         .btn {
             display: inline-block;
-            padding: 14px 20px;
-            border-radius: 14px;
+            padding: 12px 16px;
+            border-radius: 12px;
             border: none;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-weight: 600;
             cursor: pointer;
             transition: 0.15s;
             -webkit-tap-highlight-color: transparent;
             text-align: center;
-            min-height: 52px;
+            min-height: 46px;
             text-decoration: none;
         }
 
@@ -247,19 +222,10 @@
                 background: #d1d5db;
             }
 
-        .btn-danger {
-            background: #dc2626;
-            color: #fff;
-        }
-
-            .btn-danger:active {
-                background: #b91c1c;
-            }
-
         .btn-group {
             display: flex;
-            gap: 10px;
-            margin-top: 12px;
+            gap: 8px;
+            margin-top: 10px;
         }
 
             .btn-group .btn {
@@ -268,21 +234,21 @@
 
         .footer-text {
             text-align: center;
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             color: #9ca3af;
-            padding: 16px 0 8px;
+            padding: 12px 0 6px;
         }
 
         .toast {
             position: fixed;
-            bottom: 80px;
+            bottom: 70px;
             left: 50%;
             transform: translateX(-50%);
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(0,0,0,0.85);
             color: #fff;
-            padding: 10px 24px;
-            border-radius: 12px;
-            font-size: 0.85rem;
+            padding: 8px 20px;
+            border-radius: 10px;
+            font-size: 0.8rem;
             z-index: 300;
             opacity: 0;
             transition: opacity 0.3s;
@@ -299,17 +265,17 @@
             display: flex;
             align-items: center;
             gap: 6px;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             color: #6b7280;
-            margin-top: 8px;
-            padding: 6px 12px;
+            padding: 4px 10px;
             background: #f3f4f6;
-            border-radius: 8px;
+            border-radius: 6px;
+            margin-bottom: 8px;
         }
 
             .cloud-status .dot {
-                width: 8px;
-                height: 8px;
+                width: 6px;
+                height: 6px;
                 border-radius: 50%;
                 display: inline-block;
             }
@@ -326,9 +292,9 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
-            margin-top: 8px;
-            font-size: 0.75rem;
+            gap: 6px;
+            margin-top: 6px;
+            font-size: 0.7rem;
             color: #6b7280;
         }
 
@@ -339,74 +305,15 @@
                 text-decoration: underline;
             }
 
-                .refresh-tip .clickable:active {
-                    opacity: 0.6;
-                }
-
-        .modal-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 200;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
+        .storage-info {
+            background: #f0fdf4;
+            border-radius: 10px;
+            padding: 10px 14px;
+            margin-top: 8px;
+            font-size: 0.75rem;
+            color: #065f46;
+            border: 1px solid #a7f3d0;
         }
-
-            .modal-overlay.show {
-                display: flex;
-            }
-
-        .modal-box {
-            background: #fff;
-            border-radius: 20px;
-            padding: 28px 24px 20px;
-            max-width: 340px;
-            width: 100%;
-            text-align: center;
-        }
-
-            .modal-box .modal-icon {
-                font-size: 2.8rem;
-                margin-bottom: 8px;
-            }
-
-            .modal-box .modal-title {
-                font-size: 1.1rem;
-                font-weight: 600;
-                margin-bottom: 4px;
-            }
-
-            .modal-box .modal-desc {
-                font-size: 0.9rem;
-                color: #6b7280;
-                margin-bottom: 16px;
-            }
-
-            .modal-box .modal-btns {
-                display: flex;
-                gap: 10px;
-            }
-
-                .modal-box .modal-btns .btn {
-                    flex: 1;
-                    min-height: 44px;
-                    padding: 10px;
-                    font-size: 0.9rem;
-                }
-
-        .btn-ghost {
-            background: #f3f4f6;
-            color: #374151;
-        }
-
-            .btn-ghost:active {
-                background: #e5e7eb;
-            }
     </style>
 </head>
 <body>
@@ -430,12 +337,12 @@
 
             <div class="cloud-status">
                 <span class="dot online" id="cloudDot"></span>
-                <span id="cloudStatusText">☁️ 正在连接云端...</span>
+                <span id="cloudStatusText">☁️ 正在连接...</span>
             </div>
 
             <div class="loading-state" id="loadingState">
                 <div class="spinner"></div>
-                <div>正在从云端加载图片...</div>
+                <div>加载图片中...</div>
             </div>
 
             <div class="gallery-grid" id="galleryGrid" style="display:none;"></div>
@@ -457,7 +364,7 @@
             <button class="btn btn-secondary" id="refreshBtn">🔄 刷新</button>
         </div>
 
-        <div class="storage-info" style="background:#f0fdf4; border-radius:12px; padding:12px 16px; margin-top:10px; font-size:0.8rem; color:#065f46; border:1px solid #a7f3d0;">
+        <div class="storage-info">
             💡 图片存储在 <strong>ImgBB 图床</strong>，链接同步到云端
             <br />
             <span style="font-size:0.7rem; opacity:0.7;">所有设备共享同一个云端数据</span>
@@ -466,31 +373,18 @@
         <div class="footer-text">北京科技大学 染叙丹青实践小队</div>
     </div>
 
-    <!-- 删除确认弹窗 -->
-    <div class="modal-overlay" id="modalOverlay">
-        <div class="modal-box">
-            <div class="modal-icon">⚠️</div>
-            <div class="modal-title">确认删除</div>
-            <div class="modal-desc">确定要删除这张图片吗？</div>
-            <div class="modal-btns">
-                <button class="btn btn-ghost" id="modalCancel">取消</button>
-                <button class="btn btn-danger" id="modalConfirm">确认删除</button>
-            </div>
-        </div>
-    </div>
-
     <div class="toast" id="toast"></div>
 
     <script>
         // ============================================================
-        // ✅ 新 Bin ID 配置
+        // 配置
         // ============================================================
         const BIN_ID = '6a6a1c77da38895dfea04a9c';
         const JSONBIN_KEY = '$2a$10$Zg02sHzfAK.F/xlvECOq1uOPkJrNLAPj7aBVmM8d.YMsvq4j.apUm';
         const BIN_URL = `https://api.jsonbin.io/v3/b/${BIN_ID}`;
 
         // ============================================================
-        // DOM 引用
+        // DOM
         // ============================================================
         const galleryGrid = document.getElementById('galleryGrid');
         const emptyState = document.getElementById('emptyState');
@@ -501,24 +395,27 @@
         const toast = document.getElementById('toast');
         const cloudStatusText = document.getElementById('cloudStatusText');
         const cloudDot = document.getElementById('cloudDot');
-        const modalOverlay = document.getElementById('modalOverlay');
-        const modalCancel = document.getElementById('modalCancel');
-        const modalConfirm = document.getElementById('modalConfirm');
 
         let images = [];
         let isLoading = false;
-        let deleteTargetIndex = -1;
 
-        // ============================================================
-        // Toast
-        // ============================================================
         function showToast(msg) {
             toast.textContent = msg;
             toast.classList.add('show');
             clearTimeout(toast._timer);
-            toast._timer = setTimeout(() => {
-                toast.classList.remove('show');
-            }, 2500);
+            toast._timer = setTimeout(() => { toast.classList.remove('show'); }, 2000);
+        }
+
+        // ============================================================
+        // 获取缩略图
+        // ============================================================
+        function getThumbUrl(url) {
+            if (!url) return url;
+            const lastDot = url.lastIndexOf('.');
+            if (lastDot > 0) {
+                return url.substring(0, lastDot) + '_thumb' + url.substring(lastDot);
+            }
+            return url;
         }
 
         // ============================================================
@@ -533,20 +430,20 @@
                 galleryGrid.style.display = 'none';
                 emptyState.style.display = 'none';
                 countDisplay.textContent = '加载中...';
-                cloudStatusText.textContent = '☁️ 正在加载...';
+                cloudStatusText.textContent = '☁️ 加载中...';
 
-                const url = BIN_URL + '?t=' + Date.now();
+                const url = BIN_URL + '/latest?meta=false&t=' + Date.now();
 
                 const response = await fetch(url, {
                     headers: {
                         'X-Master-Key': JSONBIN_KEY,
-                        'Cache-Control': 'no-cache, no-store, must-revalidate'
+                        'Cache-Control': 'no-cache'
                     }
                 });
 
                 if (response.ok) {
                     const data = await response.json();
-                    images = data.record?.images || [];
+                    images = data.images || [];
                     images = images.filter(img => img && img.url);
 
                     cloudDot.className = 'dot online';
@@ -558,49 +455,20 @@
                     }
                     return images;
                 } else {
-                    const errorText = await response.text();
-                    console.error('加载失败:', response.status, errorText);
                     cloudDot.className = 'dot offline';
-                    cloudStatusText.textContent = '⚠️ 加载失败 (HTTP ' + response.status + ')';
-                    showToast('⚠️ 加载失败，请刷新重试');
+                    cloudStatusText.textContent = '⚠️ 加载失败';
+                    showToast('⚠️ 加载失败，请刷新');
                     return null;
                 }
             } catch (e) {
                 console.error('加载失败:', e);
                 cloudDot.className = 'dot offline';
                 cloudStatusText.textContent = '⚠️ 网络异常';
-                showToast('⚠️ 网络异常，请检查连接');
+                showToast('⚠️ 网络异常');
                 return null;
             } finally {
                 loadingState.style.display = 'none';
                 isLoading = false;
-            }
-        }
-
-        // ============================================================
-        // 同步到云端（删除后更新）
-        // ============================================================
-        async function syncToCloud(imageList) {
-            try {
-                const putRes = await fetch(BIN_URL, {
-                    method: 'PUT',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-Master-Key': JSONBIN_KEY
-                    },
-                    body: JSON.stringify({ images: imageList })
-                });
-
-                if (putRes.ok) {
-                    console.log('✅ 云端已更新');
-                    return true;
-                } else {
-                    console.error('❌ 更新失败');
-                    return false;
-                }
-            } catch (e) {
-                console.error('❌ 同步异常:', e);
-                return false;
             }
         }
 
@@ -622,43 +490,23 @@
             galleryGrid.innerHTML = '';
 
             images.forEach((imgData, index) => {
+                const thumbUrl = getThumbUrl(imgData.url);
+
                 const item = document.createElement('div');
                 item.className = 'gallery-item';
                 item.innerHTML = `
-                        <img src="${imgData.url}" alt="${imgData.name || '纹样'}" loading="lazy" />
-                        <button class="delete-btn" data-index="${index}">✕</button>
+                        <img src="${thumbUrl}" alt="${imgData.name || '纹样'}" loading="lazy" />
                         <span class="img-index">#${index + 1}</span>
                     `;
 
-                // 删除按钮
-                item.querySelector('.delete-btn').addEventListener('click', function (e) {
-                    e.stopPropagation();
-                    deleteTargetIndex = parseInt(this.dataset.index);
-                    modalOverlay.classList.add('show');
-                });
-
-                // 点击查看原图
                 item.addEventListener('click', function () {
-                    const idx = parseInt(this.querySelector('.delete-btn').dataset.index);
-                    const img = images[idx];
-                    if (img && img.url) {
-                        window.open(img.url, '_blank');
+                    if (imgData && imgData.url) {
+                        window.open(imgData.url, '_blank');
                     }
                 });
 
                 galleryGrid.appendChild(item);
             });
-        }
-
-        // ============================================================
-        // 删除图片
-        // ============================================================
-        async function deleteImage(index) {
-            if (index < 0 || index >= images.length) return;
-            images.splice(index, 1);
-            await syncToCloud(images);
-            renderGallery();
-            showToast('✅ 已删除');
         }
 
         // ============================================================
@@ -668,59 +516,35 @@
             showToast('🔄 刷新中...');
             await loadFromCloud();
             if (images.length > 0) {
-                showToast('✅ 已刷新，共 ' + images.length + ' 张图片');
+                showToast('✅ 已刷新，共 ' + images.length + ' 张');
             }
         }
 
         // ============================================================
-        // 从 URL 参数接收新图片
+        // URL 参数
         // ============================================================
         function checkUrlParams() {
             const params = new URLSearchParams(window.location.search);
             const imgData = params.get('img');
-
             if (imgData) {
                 try {
-                    const decoded = decodeURIComponent(imgData);
-                    const data = JSON.parse(decoded);
+                    const data = JSON.parse(decodeURIComponent(imgData));
                     if (data && data.url) {
                         setTimeout(() => {
                             loadFromCloud();
                             showToast('✅ 新图片已添加');
-                        }, 800);
+                        }, 500);
                         window.history.replaceState({}, document.title, window.location.pathname);
                     }
-                } catch (e) {
-                    console.error('解析失败:', e);
-                }
+                } catch (e) { }
             }
         }
 
         // ============================================================
-        // 事件绑定
+        // 事件
         // ============================================================
         refreshBtn.addEventListener('click', refresh);
         manualRefresh.addEventListener('click', refresh);
-
-        modalCancel.addEventListener('click', () => {
-            deleteTargetIndex = -1;
-            modalOverlay.classList.remove('show');
-        });
-
-        modalConfirm.addEventListener('click', async () => {
-            if (deleteTargetIndex >= 0) {
-                await deleteImage(deleteTargetIndex);
-                deleteTargetIndex = -1;
-            }
-            modalOverlay.classList.remove('show');
-        });
-
-        modalOverlay.addEventListener('click', function (e) {
-            if (e.target === this) {
-                deleteTargetIndex = -1;
-                modalOverlay.classList.remove('show');
-            }
-        });
 
         // ============================================================
         // 初始化
@@ -728,9 +552,7 @@
         async function init() {
             await loadFromCloud();
             checkUrlParams();
-            console.log('📸 云端图片展示页已加载');
-            console.log('📌 Bin ID:', BIN_ID);
-            console.log('📊 图片数量:', images.length);
+            console.log('📸 已加载，图片数:', images.length);
         }
 
         init();
