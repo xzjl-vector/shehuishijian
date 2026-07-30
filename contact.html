@@ -69,16 +69,38 @@
 
         .card-title {
             font-size: 1.05rem;
-            font-weight: 600;
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #0b3d2e;
+            border-bottom: 2px solid #d1fae5;
+            padding-bottom: 8px;
         }
 
-            .card-title .icon {
-                font-size: 1.2rem;
+        .card .highlight {
+            background: #ecfdf5;
+            border-left: 4px solid #1a6b4a;
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            color: #065f46;
+            margin-top: 4px;
+        }
+
+            .card .highlight strong {
+                color: #0b3d2e;
             }
+
+        .card p {
+            font-size: 0.92rem;
+            color: #374151;
+            line-height: 1.8;
+        }
+
+        .card .info-label {
+            font-size: 0.85rem;
+            color: #6b7280;
+            margin-top: 8px;
+        }
 
         .back-link {
             display: inline-flex;
@@ -559,20 +581,13 @@
             </div>
         </div>
 
-        <!-- ==========================================================
-        分割线
-        ========================================================== -->
-        <div class="card">
-            <div class="divider" style="margin:0;"></div>
-        </div>
+       
 
         <!-- ==========================================================
         第二部分：团队成员
         ========================================================== -->
         <div class="card">
-            <div class="card-title">
-                <span class="icon">👥</span> 团队成员
-            </div>
+            <div class="card-title">团队成员</div>
 
             <div class="member-list">
 
@@ -716,13 +731,48 @@
         </div>
 
         <!-- ==========================================================
-        第三部分：社交账号 + 二维码
+        第三部分：理念宗旨 + 实践核心内容（从 index 移入）
+        ========================================================== -->
+        <!-- 理念宗旨 -->
+        <div class="card">
+            <div class="card-title">理念宗旨</div>
+            <div class="highlight">
+                <strong>"在布帛上对话古老智慧，在纹样里看见未来。"</strong>
+                <br /><br />
+                我们是"染叙丹青"，让每一次浸染，都成为非遗新生的刻度。
+            </div>
+            <div class="info-label">所属学校：北京科技大学</div>
+        </div>
+
+        <!-- 实践核心内容 -->
+        <div class="card">
+            <div class="card-title">实践核心内容</div>
+            <p>
+                以丹寨苗族蜡染文化为核心，在丹寨万达小镇开展非遗保护与创新实践。一方面走访本地匠人，搜集整理传统蜡染纹样，挖掘纹样承载的民俗文化，记录完整制作工艺，建立数字化纹样档案，依托数字技术实现非遗资源长效保存。
+                <br /><br />
+                另一方面搭建线上线下共创平台，面向游客、青少年征集蜡染纹样与现代服饰创新设计，运用 AI 赋能创意创作。团队落地 "古今纹样对话" 实体展览，让传统蜡染遗存与大众创新作品形成对照，设置互动环节促进公众参与。
+                <br /><br />
+                此外，实践同步开展蜡染技艺体验活动，结合新媒体矩阵开展多层次文化推广，探寻民族非遗贴近当代青年、融入现代生活的传承路径。
+            </p>
+        </div>
+
+        <!-- ==========================================================
+        第四部分：社交账号 + 二维码
         ========================================================== -->
         <div class="card">
             <div class="social-section">
 
                 <div class="social-title">关注我们</div>
 
+                <div class="social-row">
+                    <a href="#" style="color:#1a6b4a;">📸</a>
+                    <a href="#" style="color:#1a6b4a;">🎵</a>
+                    <a href="#" style="color:#1a6b4a;">📺</a>
+                    <a href="#" style="color:#1a6b4a;">💬</a>
+                </div>
+                <p style="font-size:0.7rem; color:#9ca3af; margin-top:2px;">
+                    点击图标进入对应主页
+                </p>
 
                 <!-- 二维码 -->
                 <div class="qr-row">
