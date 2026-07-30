@@ -13,9 +13,9 @@
 
         body {
             font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
-            background: #001f54;
-            color: #ff5a1f;
-            line-height: 1.5;
+            background: #f5f7f6;
+            color: #1a1a2e;
+            line-height: 1.6;
             font-size: 16px;
             padding-bottom: 20px;
         }
@@ -115,21 +115,31 @@
 
         .card-title {
             font-size: 1.05rem;
-            font-weight: 600;
+            font-weight: 700;
             margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            color: #0b3d2e;
+            border-bottom: 2px solid #d1fae5;
+            padding-bottom: 8px;
         }
-
-            .card-title .icon {
-                font-size: 1.2rem;
-            }
 
         .card p {
             font-size: 0.95rem;
             color: #374151;
         }
+
+        .card .highlight {
+            background: #ecfdf5;
+            border-left: 4px solid #1a6b4a;
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            margin-top: 10px;
+            color: #065f46;
+        }
+
+            .card .highlight strong {
+                color: #0b3d2e;
+            }
 
         .footer-text {
             text-align: center;
@@ -146,6 +156,135 @@
         .mt-8 {
             margin-top: 8px;
         }
+
+        .expand-content {
+            max-height: 180px;
+            overflow: hidden;
+            position: relative;
+            transition: max-height 0.4s ease;
+        }
+
+            .expand-content.expanded {
+                max-height: 5000px;
+            }
+
+            .expand-content .fade-mask {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                height: 60px;
+                background: linear-gradient(transparent, #ffffff);
+                pointer-events: none;
+            }
+
+            .expand-content.expanded .fade-mask {
+                display: none;
+            }
+
+        .expand-btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 6px 20px;
+            border-radius: 20px;
+            border: 1px solid #1a6b4a;
+            background: transparent;
+            color: #1a6b4a;
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+            .expand-btn:active {
+                background: #1a6b4a;
+                color: #fff;
+            }
+
+        .info-label {
+            font-size: 0.85rem;
+            color: #6b7280;
+            margin-top: 8px;
+        }
+
+        .activity-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-top: 4px;
+        }
+
+        .activity-item {
+            background: #f9fafb;
+            border-radius: 14px;
+            padding: 16px 16px 18px;
+            border: 1px solid #e8edeb;
+        }
+
+            .activity-item .activity-title {
+                font-weight: 700;
+                font-size: 1rem;
+                color: #0b3d2e;
+                margin-bottom: 4px;
+            }
+
+                .activity-item .activity-title .badge {
+                    display: inline-block;
+                    background: #1a6b4a;
+                    color: #fff;
+                    font-size: 0.6rem;
+                    font-weight: 600;
+                    padding: 0 12px;
+                    border-radius: 20px;
+                    margin-left: 6px;
+                    vertical-align: middle;
+                }
+
+            .activity-item .activity-desc {
+                font-size: 0.9rem;
+                color: #4b5563;
+                margin-bottom: 8px;
+            }
+
+            .activity-item .example-box {
+                background: #ffffff;
+                border-radius: 10px;
+                padding: 12px 14px;
+                border: 1px dashed #d1d5db;
+                font-size: 0.85rem;
+                color: #374151;
+            }
+
+                .activity-item .example-box .example-label {
+                    font-weight: 600;
+                    color: #1a6b4a;
+                    font-size: 0.75rem;
+                }
+
+                .activity-item .example-box code {
+                    display: block;
+                    background: #f3f4f6;
+                    padding: 8px 12px;
+                    border-radius: 6px;
+                    font-size: 0.8rem;
+                    color: #1a1a2e;
+                    margin-top: 4px;
+                    font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+                    line-height: 1.6;
+                    white-space: pre-wrap;
+                    word-break: break-all;
+                }
+
+                .activity-item .example-box .prompt-tag {
+                    display: inline-block;
+                    background: #d1fae5;
+                    color: #065f46;
+                    font-size: 0.65rem;
+                    padding: 0 10px;
+                    border-radius: 20px;
+                    font-weight: 500;
+                    margin-right: 4px;
+                }
     </style>
 </head>
 <body>
@@ -159,6 +298,7 @@
 
     <div class="container">
 
+        <!-- ===== 导航（资源库 → 活动入口） ===== -->
         <div class="nav-grid">
             <a href="about.html" class="nav-card">
                 <span class="icon">历史文化</span>
@@ -166,37 +306,168 @@
                 <span class="desc">蜡染</span>
             </a>
             <a href="services.html" class="nav-card">
-                <span class="icon">资源库</span>
-                <span class="label">纹样</span>
-                <span class="desc">文本</span>
+                <span class="icon">活动入口</span>
+                <span class="label">征集</span>
+                <span class="desc">展览</span>
             </a>
             <a href="contact.html" class="nav-card">
                 <span class="icon">关于我们</span>
                 <span class="label">学校</span>
                 <span class="desc">成员</span>
             </a>
-            
         </div>
 
+        <!-- ==========================================================
+        活动阐述
+        ========================================================== -->
         <div class="card">
-            <div class="card-title">
-                <span class="icon">文本</span> 文本
+            <div class="card-title">活动阐述</div>
+            <p style="font-size:0.9rem; color:#6b7280; margin-bottom:10px;">
+                以"染叙丹青"为核心，围绕丹寨苗族蜡染文化开展两项公众参与活动，让传统纹样走进当代生活。
+            </p>
+
+            <div class="activity-grid">
+
+                <!-- 活动一：纹样征集 -->
+                <div class="activity-item">
+                    <div class="activity-title">
+                        活动一：纹样征集
+                        <span class="badge">进行中</span>
+                    </div>
+                    <div class="activity-desc">
+                        征集带有蜡染纹样的衣服、布艺、服饰等实物图片。参与者上传图片时需在图片的右半部分或下半部分附上文字说明，内容包括：该纹样的名称、纹样寓意、设计理念，以及你对蜡染文化的理解与感悟。
+                        <br /><br />
+                        <strong>征集方向：</strong>传统蜡染纹样服饰 · 蜡染元素现代设计 · 蜡染文创产品 · 蜡染纹样再创作
+                    </div>
+
+                    <div class="example-box">
+                        <div class="example-label">📌 示例提示词（可参考填写）</div>
+                        <code>
+                            <span class="prompt-tag">纹样名称</span> 蝴蝶妈妈纹
+                            <span class="prompt-tag">纹样寓意</span> 苗族始祖图腾，象征生命起源与族群繁衍
+                            <span class="prompt-tag">设计理念</span> 将传统蝴蝶纹与现代T恤版型结合，保留手绘蜡染冰纹质感，让古老图腾融入日常穿搭
+                            <span class="prompt-tag">我的感悟</span> 蜡染不只是一门手艺，更是苗族先民对自然的敬畏与对生命的礼赞。每一次浸染，都是与古老智慧的对话。
+                        </code>
+                        <div style="margin-top:6px; font-size:0.8rem; color:#6b7280;">
+                            💡 你可以在图片右半部分或下半部分直接书写或排版以上内容
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 活动二：线上展览 -->
+                <div class="activity-item">
+                    <div class="activity-title">
+                        活动二：线上展览
+                        <span class="badge">即将开启</span>
+                    </div>
+                    <div class="activity-desc">
+                        以"古今纹样对话"为主题，将征集到的蜡染纹样作品进行线上集中展示。展览将传统蜡染遗存与当代创新设计并置呈现，形成跨越时空的纹样对话。观众可在线浏览、点赞、评论，参与互动投票，共同选出"最受欢迎纹样作品"。
+                        <br /><br />
+                        <strong>展览板块：</strong>传统纹样单元 · 创新设计单元 · 公众投稿单元 · 纹样故事墙
+                    </div>
+
+                    <div class="example-box">
+                        <div class="example-label">📌 示例提示词（作品介绍参考）</div>
+                        <code>
+                            <span class="prompt-tag">作品名称</span> 蝴蝶妈妈 · 新生
+                            <span class="prompt-tag">作品类别</span> 蜡染T恤设计
+                            <span class="prompt-tag">设计说明</span> 以丹寨苗族蝴蝶妈妈纹为核心元素，采用传统蓝靛染色与手绘蜡染工艺，在纯棉T恤上呈现冰纹肌理与现代剪裁的结合。蝴蝶展翅姿态寓意文化的传承与新生。
+                            <span class="prompt-tag">设计者</span> 染叙丹青 · 李明轩
+                            <span class="prompt-tag">纹样故事</span> 蝴蝶妈妈是苗族创世神话中的始祖，她孕育了万物生灵。我将她展翅的瞬间定格在衣身，希望穿着者能感受到来自苗岭大地的生命力。
+                        </code>
+                        <div style="margin-top:6px; font-size:0.8rem; color:#6b7280;">
+                            💡 线上展览将于征集活动结束后正式开幕，敬请期待
+                        </div>
+                    </div>
+                </div>
+
             </div>
-            <p>文本</p>
-            <p class="text-muted mt-8">文本</p>
         </div>
 
+        <!-- ==========================================================
+        理念宗旨
+        ========================================================== -->
         <div class="card">
-            <div class="card-title">
-                <span class="icon">文本</span> 文本
+            <div class="card-title">理念宗旨</div>
+            <div class="highlight">
+                <strong>"在布帛上对话古老智慧，在纹样里看见未来。"</strong>
+                <br /><br />
+                我们是"染叙丹青"，让每一次浸染，都成为非遗新生的刻度。
             </div>
-            <p>文本</p>
-            <p style="font-size:0.85rem; color:#6b7280; margin-top:4px;">文本</p>
+            <div class="info-label">所属学校：北京科技大学</div>
+        </div>
+
+        <!-- ==========================================================
+        实践地介绍
+        ========================================================== -->
+        <div class="card">
+            <div class="card-title">实践地介绍</div>
+            <div class="expand-content" id="introContent">
+                <p style="font-size:0.92rem; line-height:1.8; color:#374151;">
+                    丹寨万达小镇地处黔东南丹寨县东湖沿岸，地处苗岭山区多民族聚居区，少数民族人口占县域总人口九成以上。丹寨非遗资源富集，拥有苗族蜡染技艺等 8 项国家级非物质文化遗产，被誉为苗疆非遗宝库。
+                    <br /><br />
+                    小镇环湖而建，街区总长 1.5 公里，建筑吸纳苗族、侗族传统营造特色，将自然风光与民族人文景观融为一体。万达小镇是国内文旅帮扶助力乡村振兴的标志性项目，自运营以来持续集聚本土非遗业态，设立蜡染小院、古法造纸工坊、鸟笼工坊等传习空间，众多非遗传承人在此常态化开展技艺展示、手工体验与作品创作。
+                    <br /><br />
+                    其中丹寨苗族蜡染技艺历史悠久，独特冰纹纹样承载苗族先民自然图腾与民族记忆，也是本次实践核心调研对象。小镇常年举办非遗市集、民俗展演、中国丹寨非遗周等文化活动，搭建起非遗传承人与市场、青年创作者交流的桥梁，持续探索 "非遗 + 旅游 + 文创" 融合发展模式，带动本地群众就近就业，为传统手工艺注入现代活力。
+                </p>
+                <div class="fade-mask" id="fadeMask"></div>
+            </div>
+            <button class="expand-btn" id="expandBtn">展开全文 ▼</button>
+        </div>
+
+        <!-- ==========================================================
+        实践核心内容
+        ========================================================== -->
+        <div class="card">
+            <div class="card-title">实践核心内容</div>
+            <div class="expand-content" id="coreContent">
+                <p style="font-size:0.92rem; line-height:1.8; color:#374151;">
+                    以丹寨苗族蜡染文化为核心，在丹寨万达小镇开展非遗保护与创新实践。一方面走访本地匠人，搜集整理传统蜡染纹样，挖掘纹样承载的民俗文化，记录完整制作工艺，建立数字化纹样档案，依托数字技术实现非遗资源长效保存。
+                    <br /><br />
+                    另一方面搭建线上线下共创平台，面向游客、青少年征集蜡染纹样与现代服饰创新设计，运用 AI 赋能创意创作。团队落地 "古今纹样对话" 实体展览，让传统蜡染遗存与大众创新作品形成对照，设置互动环节促进公众参与。
+                    <br /><br />
+                    此外，实践同步开展蜡染技艺体验活动，结合新媒体矩阵开展多层次文化推广，探寻民族非遗贴近当代青年、融入现代生活的传承路径。
+                </p>
+                <div class="fade-mask" id="coreFadeMask"></div>
+            </div>
+            <button class="expand-btn" id="coreExpandBtn">展开全文 ▼</button>
         </div>
 
         <div class="footer-text">北京科技大学 染叙丹青实践小队</div>
 
     </div>
+
+    <script>
+        function setupExpand(btnId, contentId) {
+            const btn = document.getElementById(btnId);
+            const content = document.getElementById(contentId);
+            let expanded = false;
+
+            function checkHeight() {
+                if (content.scrollHeight <= 180) {
+                    btn.style.display = 'none';
+                } else {
+                    btn.style.display = 'inline-block';
+                }
+            }
+
+            btn.addEventListener('click', function () {
+                expanded = !expanded;
+                if (expanded) {
+                    content.classList.add('expanded');
+                    btn.textContent = '收起 ▲';
+                } else {
+                    content.classList.remove('expanded');
+                    btn.textContent = '展开全文 ▼';
+                }
+            });
+
+            setTimeout(checkHeight, 100);
+        }
+
+        setupExpand('expandBtn', 'introContent');
+        setupExpand('coreExpandBtn', 'coreContent');
+    </script>
 
 </body>
 </html>

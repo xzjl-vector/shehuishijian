@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
-    <title>历史文化</title>
+    <title>历史文化 · 蜡染</title>
     <style>
         * {
             margin: 0;
@@ -15,7 +15,7 @@
             font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
             background: #f5f7f6;
             color: #1a1a2e;
-            line-height: 1.6;
+            line-height: 1.8;
             font-size: 16px;
             padding-bottom: 20px;
         }
@@ -58,15 +58,6 @@
             margin: 0 auto;
         }
 
-        .card {
-            background: #ffffff;
-            border-radius: 16px;
-            padding: 18px 18px 20px;
-            margin-top: 14px;
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
-            border: 1px solid rgba(0, 0, 0, 0.03);
-        }
-
         .back-link {
             display: inline-flex;
             align-items: center;
@@ -84,43 +75,167 @@
                 opacity: 0.6;
             }
 
-        .service-item {
-            display: flex;
-            gap: 14px;
-            padding: 14px 0;
-            border-bottom: 1px solid #f0f2f1;
+        .card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 18px 18px 20px;
+            margin-top: 14px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(0, 0, 0, 0.03);
         }
 
-            .service-item:last-child {
-                border-bottom: none;
+        .card-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #0b3d2e;
+            border-bottom: 2px solid #d1fae5;
+            padding-bottom: 8px;
+        }
+
+        .card p {
+            font-size: 0.92rem;
+            color: #374151;
+            margin-bottom: 8px;
+        }
+
+        .card .highlight-box {
+            background: #ecfdf5;
+            border-left: 4px solid #1a6b4a;
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            color: #065f46;
+            margin: 6px 0 10px 0;
+        }
+
+            .card .highlight-box strong {
+                color: #0b3d2e;
             }
 
-            .service-item .s-icon {
-                font-size: 2rem;
-                width: 48px;
-                text-align: center;
-                flex-shrink: 0;
+        /* ===== 顶部两张图片 ===== */
+        .image-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 4px;
+        }
+
+            .image-row .img-wrapper {
+                border-radius: 12px;
+                overflow: hidden;
+                background: #f3f4f6;
+                border: 2px solid #e5e7eb;
+                aspect-ratio: 1 / 1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 0.8rem;
+                color: #9ca3af;
             }
 
-            .service-item .s-info .s-title {
-                font-weight: 600;
-                font-size: 1rem;
+                .image-row .img-wrapper img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    display: block;
+                }
+
+                .image-row .img-wrapper .placeholder {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 4px;
+                    color: #9ca3af;
+                    font-size: 0.8rem;
+                }
+
+                    .image-row .img-wrapper .placeholder .icon {
+                        font-size: 2.5rem;
+                    }
+
+        /* ===== 展开折叠 ===== */
+        .expand-content {
+            max-height: 180px;
+            overflow: hidden;
+            position: relative;
+            transition: max-height 0.4s ease;
+        }
+
+            .expand-content.expanded {
+                max-height: 5000px;
             }
 
-            .service-item .s-info .s-desc {
+            .expand-content .fade-mask {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                height: 60px;
+                background: linear-gradient(transparent, #ffffff);
+                pointer-events: none;
+            }
+
+            .expand-content.expanded .fade-mask {
+                display: none;
+            }
+
+        .expand-btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 6px 20px;
+            border-radius: 20px;
+            border: 1px solid #1a6b4a;
+            background: transparent;
+            color: #1a6b4a;
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+            .expand-btn:active {
+                background: #1a6b4a;
+                color: #fff;
+            }
+
+        /* ===== 流程步骤列表 ===== */
+        .step-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 6px;
+        }
+
+        .step-item {
+            background: #f9fafb;
+            border-radius: 12px;
+            padding: 14px 16px;
+            border: 1px solid #e8edeb;
+        }
+
+            .step-item .step-title {
+                font-weight: 700;
+                font-size: 0.95rem;
+                color: #0b3d2e;
+            }
+
+            .step-item .step-desc {
                 font-size: 0.88rem;
                 color: #4b5563;
+                margin-top: 4px;
             }
 
-            .service-item .s-info .s-tag {
+            .step-item .step-num {
                 display: inline-block;
                 background: #d1fae5;
                 color: #065f46;
-                font-size: 0.65rem;
-                padding: 0 12px;
+                font-size: 0.7rem;
+                font-weight: 600;
+                padding: 0 10px;
                 border-radius: 20px;
-                margin-top: 4px;
-                font-weight: 500;
+                margin-right: 8px;
             }
 
         .footer-text {
@@ -129,6 +244,23 @@
             color: #9ca3af;
             padding: 20px 0 8px;
         }
+
+        .info-tag {
+            display: inline-block;
+            background: #d1fae5;
+            color: #065f46;
+            font-size: 0.7rem;
+            padding: 0 12px;
+            border-radius: 20px;
+            font-weight: 500;
+            margin-left: 6px;
+        }
+
+        @media (max-width: 400px) {
+            .image-row .img-wrapper {
+                aspect-ratio: 1 / 1;
+            }
+        }
     </style>
 </head>
 <body>
@@ -136,61 +268,104 @@
     <div class="hero-image">
         <div class="overlay">
             <h1>历史文化</h1>
-            <p>丹寨·蜡染</p>
+            <p>丹寨 · 蜡染</p>
         </div>
     </div>
 
     <div class="container">
 
-        <a href="index.html" class="back-link">←返回首页</a>
+        <a href="index.html" class="back-link">← 返回首页</a>
 
+        <!-- ==========================================================
+        顶部：两张图片
+        ========================================================== -->
         <div class="card">
-
-            <div class="service-item">
-                <div class="s-icon">文本</div>
-                <div class="s-info">
-                    <div class="s-title">文本</div>
-                    <div class="s-desc">文本</div>
-                    <span class="s-tag">文本</span>
+            <div class="image-row">
+                <!-- 第一张图片：IP形象 -->
+                <div class="img-wrapper">
+                    <img src="ip.png" alt="IP形象 - 小染" />
+                </div>
+                <!-- 第二张图片：蜡染相关 -->
+                <div class="img-wrapper">
+                    <img src="laran.png" alt="蜡染纹样" />
                 </div>
             </div>
+        </div>
 
-            <div class="service-item">
-                <div class="s-icon">文本</div>
-                <div class="s-info">
-                    <div class="s-title">文本</div>
-                    <div class="s-desc">文本</div>
-                    <span class="s-tag">文本</span>
-                </div>
+        <!-- ==========================================================
+        IP形象
+        ========================================================== -->
+        <div class="card">
+            <div class="card-title">IP形象 · 小染</div>
+            <div class="highlight-box">
+                <strong>名字：</strong>小染
+                <br /><br />
+                <strong>含义：</strong>以“染”为核心，紧扣丹寨苗族蜡染技艺与“染叙丹青”实践主题。形象水滴外形呼应蜡染脱蜡水洗的关键工序；衣身蝴蝶纹样象征生机与新生。寓意浸染着色的工艺过程，正是传统文化不断焕发生机的过程，践行团队“于布帛对话古智，以纹样奔赴未来，让每一次浸染，成为非遗新生刻度”的核心理念。
             </div>
+        </div>
 
-            <div class="service-item">
-                <div class="s-icon">文本</div>
-                <div class="s-info">
-                    <div class="s-title">文本</div>
-                    <div class="s-desc">文本</div>
-                    <span class="s-tag">文本</span>
+        <!-- ==========================================================
+        染艺源流
+        ========================================================== -->
+        <div class="card">
+            <div class="card-title">染艺源流</div>
+            <p><strong>蜡染历史来源：</strong></p>
+            <p>蜡染古称蜡缬，是中国古代三大防染印花技艺（蜡缬、绞缬、夹缬）之一，属于物理防染工艺体系。其技艺雏形可追溯至秦汉时期，1959 年新疆民丰尼雅遗址东汉墓出土的蓝白蜡染棉布，是国内迄今发现较早的蜡染实物遗存。至唐代，蜡染工艺在中原地区达到鼎盛，广泛应用于服饰、屏风、帐幔等场景；两宋之后，中原染缬工艺逐步转向雕版印花，蜡染技艺在西南少数民族地区得以完整延续，形成“中原失传而边地存”的传承格局。</p>
+            <p style="margin-top:8px;">贵州丹寨是苗族蜡染的核心传承区，境内尤以排倒莫一带的白领苗蜡染最具代表性。2006 年，丹寨苗族蜡染技艺列入第一批国家级非物质文化遗产名录（项目编号：Ⅷ-25）。丹寨蜡染保留了完整的手工技艺链条与原生纹样体系，苗族群体以口传心授的方式代代相传，纹样承载族群历史、图腾信仰与自然认知，被称为“写在布上的苗族史诗”。相较于其他地区蜡染，丹寨蜡染以徒手绘蜡、冰纹自然、纹样古朴为核心特征，是中国古法蜡染活态传承的典型样本。</p>
+        </div>
+
+        <!-- ==========================================================
+        制作技艺流程
+        ========================================================== -->
+        <div class="card">
+            <div class="card-title">制作技艺流程</div>
+            <p style="font-size:0.85rem; color:#6b7280; margin-bottom:8px;">完整古法工艺流程分为七大核心工序</p>
+
+            <div class="step-list">
+
+                <!-- 步骤1 -->
+                <div class="step-item">
+                    <div class="step-title"><span class="step-num">1</span>织物前处理（备布）</div>
+                    <div class="step-desc">选用原生纯棉平纹布或苎麻布，先经清水浸泡去除织物上的浆料与杂质，再以木槌反复捶打提升纤维蓬松度，最终晾晒整平。该工序旨在优化织物润湿性，保证后续染料均匀上染，是蜡染发色均匀的基础。</div>
                 </div>
-            </div>
 
-            <div class="service-item">
-                <div class="s-icon">文本</div>
-                <div class="s-info">
-                    <div class="s-title">文本</div>
-                    <div class="s-desc">文本</div>
-                    <span class="s-tag">文本</span>
+                <!-- 步骤2 -->
+                <div class="step-item">
+                    <div class="step-title"><span class="step-num">2</span>熔蜡备料</div>
+                    <div class="step-desc">以天然蜂蜡为主要原料，部分匠人会按比例混入少量白蜡调节蜡层脆性。采用隔水恒温加热方式熔融蜡液，温度稳定控制在 60℃–70℃，既保证蜡液具备良好的流动性，又避免高温导致蜡质焦变、影响防染效果。</div>
                 </div>
-            </div>
 
-            <div class="service-item">
-                <div class="s-icon">文本</div>
-                <div class="s-info">
-                    <div class="s-title">文本</div>
-                    <div class="s-desc">文本</div>
-                    <span class="s-tag">文本</span>
+                <!-- 步骤3 -->
+                <div class="step-item">
+                    <div class="step-title"><span class="step-num">3</span>手工绘蜡（点蜡）</div>
+                    <div class="step-desc">匠人手持铜制蜡刀（分尖口、平口等多种规格，分别用于勾线、填面），蘸取熔融蜡液徒手在布面绘制纹样，无需提前打稿。蜡液接触常温织物后迅速凝固成膜，形成致密的防染保护层。丹寨蜡染纹样涵盖蝴蝶纹、花草纹、几何纹、铜鼓纹等类别，遵循苗族世代传承的图谱规范，兼具审美与文化表意功能。</div>
                 </div>
-            </div>
 
+                <!-- 步骤4 -->
+                <div class="step-item">
+                    <div class="step-title"><span class="step-num">4</span>靛蓝浸染</div>
+                    <div class="step-desc">采用天然蓝靛发酵染料，属于还原染料染色体系。染液由蓝靛泥、酒糟、草木灰水按传统配比发酵制成，在弱碱性还原环境下，不溶性靛蓝转化为可溶于水的隐色体，从而进入纤维内部。浸染采用“多次浸染、逐级加深”的工艺：织物完全浸入染缸 3–5 分钟后提出，每浸染一次需置于空气中充分氧化，循环操作 8–15 次，直至达到目标色深。</div>
+                </div>
+
+                <!-- 步骤5 -->
+                <div class="step-item">
+                    <div class="step-title"><span class="step-num">5</span>氧化固色</div>
+                    <div class="step-desc">浸染后的织物置于通风处自然静置，纤维上的靛蓝隐色体与空气中的氧气发生反应，重新转化为不溶性靛蓝固着于纤维内部，完成发色与固色。丹寨本地的山地温湿度条件，造就了丹寨蜡染沉稳醇厚的靛蓝色调。</div>
+                </div>
+
+                <!-- 步骤6 -->
+                <div class="step-item">
+                    <div class="step-title"><span class="step-num">6</span>脱蜡漂洗</div>
+                    <div class="step-desc">染色完成后采用沸水煮脱法脱蜡：将织物置入沸水锅中，蜂蜡受热熔融脱离织物；随后经多道清水漂洗，彻底去除残留蜡质与浮色。浸染过程中蜡层受外力弯折自然龟裂，染料沿裂纹渗入形成的冰纹，会在脱蜡后完整显现，成为每件蜡染作品独有的标识。</div>
+                </div>
+
+                <!-- 步骤7 -->
+                <div class="step-item">
+                    <div class="step-title"><span class="step-num">7</span>成品后整理</div>
+                    <div class="step-desc">漂洗后的织物于阴凉通风处自然阴干，避免暴晒导致色牢度下降；最终经平整熨烫，完成整件蜡染作品的制作。</div>
+                </div>
+
+            </div>
         </div>
 
         <div class="footer-text">北京科技大学 染叙丹青实践小队</div>
