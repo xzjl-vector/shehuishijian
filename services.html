@@ -70,7 +70,7 @@
         .card-title {
             font-size: 1.05rem;
             font-weight: 600;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
             display: flex;
             align-items: center;
             gap: 8px;
@@ -102,6 +102,45 @@
                 opacity: 0.6;
             }
 
+        .team-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 6px;
+        }
+
+        .team-member {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: #f9fafb;
+            padding: 12px 14px;
+            border-radius: 12px;
+            border: 1px solid #e8edeb;
+        }
+
+            .team-member .avatar {
+                font-size: 2.2rem;
+                width: 48px;
+                text-align: center;
+                flex-shrink: 0;
+            }
+
+            .team-member .info .name {
+                font-weight: 600;
+                font-size: 0.95rem;
+            }
+
+            .team-member .info .role {
+                font-size: 0.8rem;
+                color: #1a6b4a;
+            }
+
+            .team-member .info .bio {
+                font-size: 0.78rem;
+                color: #6b7280;
+            }
+
         .footer-text {
             text-align: center;
             font-size: 0.75rem;
@@ -109,222 +148,45 @@
             padding: 20px 0 8px;
         }
 
-        /* ============================================================
-           新增：左侧图片 + 右侧两排文字 样式
-           ============================================================ */
-
-        /* 纹样列表容器 */
-        .pattern-list {
+        .upload-btn {
             display: flex;
-            flex-direction: column;
-            gap: 12px;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            padding: 16px 20px;
+            background: linear-gradient(135deg, #1a6b4a, #2d8f6a);
+            color: #fff;
+            border: none;
+            border-radius: 14px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.15s;
+            -webkit-tap-highlight-color: transparent;
+            text-decoration: none;
+            text-align: center;
+            min-height: 56px;
             margin-top: 4px;
         }
 
-        /* 每个纹样项：左图右文 */
-        .pattern-item {
-            display: flex;
-            gap: 14px;
-            align-items: stretch;
-            background: #f9fafb;
-            border-radius: 14px;
-            padding: 12px 14px;
-            border: 1px solid #e8edeb;
-            transition: 0.2s;
-        }
-
-            .pattern-item:active {
-                transform: scale(0.98);
-                background: #f0f2f1;
+            .upload-btn:active {
+                transform: scale(0.97);
+                background: #0b3d2e;
             }
 
-        /* ===== 左侧图片 ===== */
-        .pattern-image {
-            flex-shrink: 0;
-            width: 100px;
-            height: 100px;
-            border-radius: 12px;
-            overflow: hidden;
-            background: #e5e7eb;
-            cursor: pointer;
-            border: 2px solid #e5e7eb;
-            transition: 0.2s;
-            position: relative;
-        }
-
-            .pattern-image:active {
-                transform: scale(0.95);
+            .upload-btn .icon {
+                font-size: 1.6rem;
             }
 
-            .pattern-image img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                display: block;
-            }
-
-            /* 图片加载占位 */
-            .pattern-image .placeholder {
-                width: 100%;
-                height: 100%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 2rem;
-                color: #9ca3af;
-                background: #f3f4f6;
-            }
-
-            /* 图片加载失败 */
-            .pattern-image .img-error {
-                width: 100%;
-                height: 100%;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
+            .upload-btn .hint {
                 font-size: 0.7rem;
-                color: #9ca3af;
-                background: #f3f4f6;
+                font-weight: 400;
+                opacity: 0.8;
+                display: block;
+                margin-top: 2px;
             }
 
-                .pattern-image .img-error .icon {
-                    font-size: 1.5rem;
-                }
-
-        /* ===== 右侧两排文字 ===== */
-        .pattern-info {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            gap: 4px;
-            min-width: 0;
-        }
-
-            .pattern-info .pattern-name {
-                font-weight: 700;
-                font-size: 1rem;
-                color: #1a1a2e;
-                line-height: 1.3;
-            }
-
-                .pattern-info .pattern-name .tag {
-                    display: inline-block;
-                    font-size: 0.6rem;
-                    font-weight: 400;
-                    background: #d1fae5;
-                    color: #065f46;
-                    padding: 0 10px;
-                    border-radius: 20px;
-                    margin-left: 6px;
-                    vertical-align: middle;
-                }
-
-            .pattern-info .pattern-desc {
-                font-size: 0.85rem;
-                color: #6b7280;
-                line-height: 1.4;
-                display: -webkit-box;
-                -webkit-line-clamp: 2;
-                -webkit-box-orient: vertical;
-                overflow: hidden;
-            }
-
-        /* ============================================================
-           图片放大弹窗（Lightbox）
-           ============================================================ */
-        .lightbox-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.92);
-            z-index: 1000;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            cursor: pointer;
-            animation: fadeIn 0.25s ease;
-        }
-
-            .lightbox-overlay.show {
-                display: flex;
-            }
-
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-            }
-
-            100% {
-                opacity: 1;
-            }
-        }
-
-        .lightbox-overlay .lightbox-content {
-            max-width: 100%;
-            max-height: 80vh;
-            border-radius: 12px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-            animation: zoomIn 0.3s ease;
-            object-fit: contain;
-        }
-
-        @keyframes zoomIn {
-            0% {
-                transform: scale(0.8);
-                opacity: 0;
-            }
-
-            100% {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-
-        .lightbox-overlay .lightbox-close {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            color: #fff;
-            font-size: 2rem;
-            background: rgba(0, 0, 0, 0.5);
-            border: none;
-            border-radius: 50%;
-            width: 48px;
-            height: 48px;
-            cursor: pointer;
-            transition: 0.2s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 300;
-            -webkit-tap-highlight-color: transparent;
-        }
-
-            .lightbox-overlay .lightbox-close:active {
-                transform: scale(0.9);
-                background: rgba(255, 255, 255, 0.2);
-            }
-
-        .lightbox-overlay .lightbox-counter {
-            position: absolute;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 0.85rem;
-            background: rgba(0, 0, 0, 0.5);
-            padding: 4px 16px;
-            border-radius: 20px;
-        }
-
-        /* ============================================================
-           按钮样式
-           ============================================================ */
         .btn-group {
             display: flex;
             gap: 10px;
@@ -366,35 +228,6 @@
             .btn-secondary:active {
                 background: #1a4a32;
             }
-
-        .btn-outline {
-            background: transparent;
-            border: 2px solid #1a6b4a;
-            color: #1a6b4a;
-        }
-
-            .btn-outline:active {
-                background: #1a6b4a;
-                color: #fff;
-            }
-
-        /* ============================================================
-           响应式
-           ============================================================ */
-        @media (max-width: 400px) {
-            .pattern-image {
-                width: 80px;
-                height: 80px;
-            }
-
-            .pattern-info .pattern-name {
-                font-size: 0.9rem;
-            }
-
-            .pattern-info .pattern-desc {
-                font-size: 0.78rem;
-            }
-        }
     </style>
 </head>
 <body>
@@ -402,303 +235,65 @@
     <div class="hero-image">
         <div class="overlay">
             <h1>资源库</h1>
-            <p>蜡染纹样 · 征集展示</p>
+            <p></p>
         </div>
     </div>
 
     <div class="container">
 
         <a href="index.html" class="back-link">← 返回首页</a>
-        <!-- ==========================================================
-    活动卡片
-    ========================================================== -->
+
         <div class="card">
             <div class="card-title">
-                <span class="icon">📢</span> 征集活动
+                <span class="icon"></span> 纹样资源
             </div>
-            <p style="font-size:0.92rem; color:#374151;">
-
-            </p>
-            <p style="font-size:0.85rem; color:#6b7280; margin-top:6px;">
-            </p>
+            <p>蜡染纹样展示</p>
+            <div class="team-list">
+                <div class="team-member">
+                    <div class="avatar">文本</div>
+                    <div class="info">
+                        <div class="name">文本</div>
+                        <div class="role">文本</div>
+                        <div class="bio">文本</div>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="avatar">文本</div>
+                    <div class="info">
+                        <div class="name">文本</div>
+                        <div class="role">文本</div>
+                        <div class="bio">文本</div>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="avatar">文本</div>
+                    <div class="info">
+                        <div class="name">文本</div>
+                        <div class="role">文本</div>
+                        <div class="bio">文本</div>
+                    </div>
+                </div>
+                <div class="team-member" style="background:#f3f4f6; border-style:dashed; justify-content:center;">
+                    <span style="font-size:0.85rem; color:#6b7280;">文本</span>
+                </div>
+            </div>
         </div>
 
-        <!-- ==========================================================
-    操作按钮
-    ========================================================== -->
+        <div class="card">
+            <div class="card-title">
+                <span class="icon">活动</span>
+            </div>
+            <p>文本</p>
+        </div>
+
         <div class="btn-group">
-            <a href="upload.html" class="btn btn-primary">
-                上传图片
-            </a>
-            <a href="gallery.html" class="btn btn-secondary">
-                查看图库
-            </a>
+            <a href="upload.html" class="btn btn-primary">📤 上传图片</a>
+            <a href="gallery.html" class="btn btn-secondary">🖼️ 查看图库</a>
         </div>
-
-        <!-- 额外按钮：查看所有纹样 -->
-        <div style="margin-top:8px;">
-            <a href="gallery.html" class="btn btn-outline" style="display:block; text-align:center; padding:12px; border-radius:14px; text-decoration:none; font-weight:500; font-size:0.9rem; border:2px solid #1a6b4a; color:#1a6b4a;">
-                浏览全部征集作品 →
-            </a>
-        </div>
-        <!-- ==========================================================
-    纹样资源卡片
-    ========================================================== -->
-        <div class="card">
-            <div class="card-title">
-                <span class="icon"></span> 蜡染纹样资源库
-            </div>
-            <p style="font-size:0.9rem; color:#6b7280; margin-bottom:10px;">
-                征集到的蜡染纹样展示 · 点击图片可查看大图
-            </p>
-
-            <!-- 纹样列表 -->
-            <div class="pattern-list" id="patternList">
-                <!-- 纹样 1 -->
-                <div class="pattern-item" data-index="0">
-                    <div class="pattern-image" onclick="openLightbox(0)">
-                        <img src="11.png"
-                             alt="纹样1"
-                             loading="lazy"
-                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-                        <div class="placeholder" style="display:none;">🖼️</div>
-                        <div class="img-error" style="display:none;">
-                            <span class="icon">🖼️</span>
-                            <span>加载失败</span>
-                        </div>
-                    </div>
-                    <div class="pattern-info">
-                        <div class="pattern-name">
-                            纹样 1
-                            <span class="tag">蜡染</span>
-                        </div>
-                        <div class="pattern-desc">
-                            传统蜡染纹样 · 丹寨苗族
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 纹样 2 -->
-                <div class="pattern-item" data-index="1">
-                    <div class="pattern-image" onclick="openLightbox(1)">
-                        <img src="12.png"
-                             alt="纹样2"
-                             loading="lazy"
-                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-                        <div class="placeholder" style="display:none;">🖼️</div>
-                        <div class="img-error" style="display:none;">
-                            <span class="icon">🖼️</span>
-                            <span>加载失败</span>
-                        </div>
-                    </div>
-                    <div class="pattern-info">
-                        <div class="pattern-name">
-                            纹样 2
-                            <span class="tag">蜡染</span>
-                        </div>
-                        <div class="pattern-desc">
-                            传统蜡染纹样 · 丹寨苗族
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 纹样 3 -->
-                <div class="pattern-item" data-index="2">
-                    <div class="pattern-image" onclick="openLightbox(2)">
-                        <img src="13.png"
-                             alt="纹样3"
-                             loading="lazy"
-                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-                        <div class="placeholder" style="display:none;">🖼️</div>
-                        <div class="img-error" style="display:none;">
-                            <span class="icon">🖼️</span>
-                            <span>加载失败</span>
-                        </div>
-                    </div>
-                    <div class="pattern-info">
-                        <div class="pattern-name">
-                            纹样 3
-                            <span class="tag">蜡染</span>
-                        </div>
-                        <div class="pattern-desc">
-                            传统蜡染纹样 · 丹寨苗族
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 纹样 4 -->
-                <div class="pattern-item" data-index="3">
-                    <div class="pattern-image" onclick="openLightbox(3)">
-                        <img src="14.png"
-                             alt="纹样4"
-                             loading="lazy"
-                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-                        <div class="placeholder" style="display:none;">🖼️</div>
-                        <div class="img-error" style="display:none;">
-                            <span class="icon">🖼️</span>
-                            <span>加载失败</span>
-                        </div>
-                    </div>
-                    <div class="pattern-info">
-                        <div class="pattern-name">
-                            纹样 4
-                            <span class="tag">蜡染</span>
-                        </div>
-                        <div class="pattern-desc">
-                            传统蜡染纹样 · 丹寨苗族
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 纹样 5 -->
-                <div class="pattern-item" data-index="4">
-                    <div class="pattern-image" onclick="openLightbox(4)">
-                        <img src="15.png"
-                             alt="纹样5"
-                             loading="lazy"
-                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-                        <div class="placeholder" style="display:none;">🖼️</div>
-                        <div class="img-error" style="display:none;">
-                            <span class="icon">🖼️</span>
-                            <span>加载失败</span>
-                        </div>
-                    </div>
-                    <div class="pattern-info">
-                        <div class="pattern-name">
-                            纹样 5
-                            <span class="tag">蜡染</span>
-                        </div>
-                        <div class="pattern-desc">
-                            传统蜡染纹样 · 丹寨苗族
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 纹样 6 -->
-                <div class="pattern-item" data-index="5">
-                    <div class="pattern-image" onclick="openLightbox(5)">
-                        <img src="16.png"
-                             alt="纹样6"
-                             loading="lazy"
-                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-                        <div class="placeholder" style="display:none;">🖼️</div>
-                        <div class="img-error" style="display:none;">
-                            <span class="icon">🖼️</span>
-                            <span>加载失败</span>
-                        </div>
-                    </div>
-                    <div class="pattern-info">
-                        <div class="pattern-name">
-                            纹样 6
-                            <span class="tag">蜡染</span>
-                        </div>
-                        <div class="pattern-desc">
-                            传统蜡染纹样 · 丹寨苗族
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 更多纹样占位（灰色提示） -->
-                <div class="pattern-item" style="background:#f3f4f6; border-style:dashed; justify-content:center; padding:16px;">
-                    <span style="font-size:0.85rem; color:#6b7280;">
-                        更多纹样持续更新中...
-                    </span>
-                </div>
-            </div>
-        </div>
-
-
 
         <div class="footer-text">北京科技大学 染叙丹青实践小队</div>
+
     </div>
-
-    <!-- ==========================================================
-    图片放大弹窗（Lightbox）
-    ========================================================== -->
-    <div class="lightbox-overlay" id="lightbox" onclick="closeLightbox()">
-        <button class="lightbox-close" onclick="event.stopPropagation(); closeLightbox();">✕</button>
-        <img class="lightbox-content" id="lightboxImg" src="" alt="放大查看" />
-        <div class="lightbox-counter" id="lightboxCounter">1 / 6</div>
-    </div>
-
-    <script>
-        // ============================================================
-        // 纹样数据（与 HTML 中的纹样一一对应）
-        // ============================================================
-        const patterns = [
-            { name: '纹样 1', desc: '传统蜡染纹样 · 丹寨苗族', img: '1.png' },
-            { name: '纹样 2', desc: '传统蜡染纹样 · 丹寨苗族', img: '2.png' },
-            { name: '纹样 3', desc: '传统蜡染纹样 · 丹寨苗族', img: '3.png' },
-            { name: '纹样 4', desc: '传统蜡染纹样 · 丹寨苗族', img: '4.png' },
-            { name: '纹样 5', desc: '传统蜡染纹样 · 丹寨苗族', img: '5.png' },
-            { name: '纹样 6', desc: '传统蜡染纹样 · 丹寨苗族', img: '6.png' }
-        ];
-
-        // ============================================================
-        // Lightbox 功能
-        // ============================================================
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImg = document.getElementById('lightboxImg');
-        const lightboxCounter = document.getElementById('lightboxCounter');
-        let currentIndex = 0;
-
-        function openLightbox(index) {
-            if (index < 0 || index >= patterns.length) return;
-            currentIndex = index;
-            const pattern = patterns[index];
-            lightboxImg.src = pattern.img;
-            lightboxImg.alt = pattern.name;
-            lightboxCounter.textContent = (index + 1) + ' / ' + patterns.length;
-            lightbox.classList.add('show');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeLightbox() {
-            lightbox.classList.remove('show');
-            document.body.style.overflow = '';
-        }
-
-        // 键盘事件：ESC 关闭，左右箭头切换
-        document.addEventListener('keydown', function(e) {
-            if (!lightbox.classList.contains('show')) return;
-
-            if (e.key === 'Escape') {
-                closeLightbox();
-            } else if (e.key === 'ArrowLeft') {
-                e.preventDefault();
-                const prev = (currentIndex - 1 + patterns.length) % patterns.length;
-                openLightbox(prev);
-            } else if (e.key === 'ArrowRight') {
-                e.preventDefault();
-                const next = (currentIndex + 1) % patterns.length;
-                openLightbox(next);
-            }
-        });
-
-        // 点击弹窗背景关闭（已在 HTML 中绑定 onclick）
-        // 阻止点击图片本身关闭弹窗
-        lightboxImg.addEventListener('click', function(e) {
-            e.stopPropagation();
-        });
-
-        // ============================================================
-        // 初始化：检查图片是否存在，若不存在显示占位
-        // ============================================================
-        document.querySelectorAll('.pattern-image img').forEach(function(img) {
-            // 如果图片加载失败，显示占位
-            img.addEventListener('error', function() {
-                this.style.display = 'none';
-                const parent = this.parentElement;
-                const placeholder = parent.querySelector('.placeholder');
-                if (placeholder) {
-                    placeholder.style.display = 'flex';
-                }
-            });
-        });
-
-        console.log('🎨 纹样资源页已加载，共 ' + patterns.length + ' 个纹样');
-        console.log('💡 点击图片可放大查看');
-    </script>
 
 </body>
 </html>
