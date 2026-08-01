@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
-    <title>征集活动</title>
+    <title>纹样展示 · 蜡染</title>
     <style>
         * {
             margin: 0;
@@ -58,33 +58,6 @@
             margin: 0 auto;
         }
 
-        .card {
-            background: #ffffff;
-            border-radius: 16px;
-            padding: 18px 18px 20px;
-            margin-top: 14px;
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
-            border: 1px solid rgba(0, 0, 0, 0.03);
-        }
-
-        .card-title {
-            font-size: 1.05rem;
-            font-weight: 600;
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-            .card-title .icon {
-                font-size: 1.2rem;
-            }
-
-        .card p {
-            font-size: 0.95rem;
-            color: #374151;
-        }
-
         .back-link {
             display: inline-flex;
             align-items: center;
@@ -102,95 +75,109 @@
                 opacity: 0.6;
             }
 
-        .team-list {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            margin-top: 6px;
+        .card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 18px 18px 20px;
+            margin-top: 14px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(0, 0, 0, 0.03);
         }
 
-        .team-member {
-            display: flex;
-            align-items: center;
+        .card-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #0b3d2e;
+            border-bottom: 2px solid #d1fae5;
+            padding-bottom: 8px;
+        }
+
+        .card-desc {
+            font-size: 0.85rem;
+            color: #6b7280;
+            margin-bottom: 12px;
+        }
+
+        /* ==========================================================
+        两列图文网格
+        ========================================================== */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             gap: 12px;
+        }
+
+        .gallery-item {
             background: #f9fafb;
-            padding: 12px 14px;
             border-radius: 12px;
+            overflow: hidden;
             border: 1px solid #e8edeb;
-        }
-
-            .team-member .avatar {
-                font-size: 2.2rem;
-                width: 48px;
-                text-align: center;
-                flex-shrink: 0;
-            }
-
-            .team-member .info .name {
-                font-weight: 600;
-                font-size: 0.95rem;
-            }
-
-            .team-member .info .role {
-                font-size: 0.8rem;
-                color: #1a6b4a;
-            }
-
-            .team-member .info .bio {
-                font-size: 0.78rem;
-                color: #6b7280;
-            }
-
-        .footer-text {
-            text-align: center;
-            font-size: 0.75rem;
-            color: #9ca3af;
-            padding: 20px 0 8px;
-        }
-
-        .upload-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            width: 100%;
-            padding: 16px 20px;
-            background: linear-gradient(135deg, #1a6b4a, #2d8f6a);
-            color: #fff;
-            border: none;
-            border-radius: 14px;
-            font-size: 1rem;
-            font-weight: 600;
+            transition: 0.2s;
             cursor: pointer;
-            transition: 0.15s;
-            -webkit-tap-highlight-color: transparent;
-            text-decoration: none;
-            text-align: center;
-            min-height: 56px;
-            margin-top: 4px;
         }
 
-            .upload-btn:active {
+            .gallery-item:active {
                 transform: scale(0.97);
-                background: #0b3d2e;
+                background: #f0f2f1;
             }
 
-            .upload-btn .icon {
-                font-size: 1.6rem;
+            .gallery-item .img-wrapper {
+                width: 100%;
+                aspect-ratio: 1 / 1;
+                overflow: hidden;
+                background: #f3f4f6;
+                display: flex;
+                align-items: center;
+                justify-content: center;
             }
 
-            .upload-btn .hint {
-                font-size: 0.7rem;
-                font-weight: 400;
-                opacity: 0.8;
-                display: block;
-                margin-top: 2px;
+                .gallery-item .img-wrapper img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    display: block;
+                }
+
+                .gallery-item .img-wrapper .placeholder {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    color: #9ca3af;
+                    font-size: 0.7rem;
+                }
+
+                    .gallery-item .img-wrapper .placeholder .icon {
+                        font-size: 2rem;
+                    }
+
+            .gallery-item .item-label {
+                padding: 8px 10px 10px;
+                font-size: 0.8rem;
+                font-weight: 500;
+                color: #1a1a2e;
+                text-align: center;
+                line-height: 1.3;
+                border-top: 1px solid #e8edeb;
+                background: #ffffff;
             }
 
+                .gallery-item .item-label .sub {
+                    font-weight: 400;
+                    font-size: 0.7rem;
+                    color: #6b7280;
+                    display: block;
+                    margin-top: 2px;
+                }
+
+        /* ==========================================================
+        底部按钮
+        ========================================================== */
         .btn-group {
             display: flex;
             gap: 10px;
-            margin-top: 10px;
+            margin-top: 14px;
         }
 
             .btn-group .btn {
@@ -228,72 +215,258 @@
             .btn-secondary:active {
                 background: #1a4a32;
             }
+
+        .footer-text {
+            text-align: center;
+            font-size: 0.75rem;
+            color: #9ca3af;
+            padding: 20px 0 8px;
+        }
+
+        /* ==========================================================
+        图片放大弹窗（Lightbox）
+        ========================================================== */
+        .lightbox-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.92);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            cursor: pointer;
+            animation: fadeIn 0.25s ease;
+        }
+
+            .lightbox-overlay.show {
+                display: flex;
+            }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes zoomIn {
+            0% {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .lightbox-overlay .lightbox-content {
+            max-width: 90%;
+            max-height: 80vh;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            animation: zoomIn 0.3s ease;
+            object-fit: contain;
+            background: #fff;
+        }
+
+        .lightbox-overlay .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: #fff;
+            font-size: 2rem;
+            background: rgba(0, 0, 0, 0.5);
+            border: none;
+            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            cursor: pointer;
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 300;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+            .lightbox-overlay .lightbox-close:active {
+                transform: scale(0.9);
+                background: rgba(255, 255, 255, 0.2);
+            }
+
+        .lightbox-overlay .lightbox-name {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 4px 20px;
+            border-radius: 20px;
+            max-width: 80%;
+            text-align: center;
+        }
+
+        @media (max-width: 400px) {
+            .gallery-grid {
+                gap: 8px;
+            }
+
+            .gallery-item .item-label {
+                font-size: 0.7rem;
+                padding: 6px 8px 8px;
+            }
+
+                .gallery-item .item-label .sub {
+                    font-size: 0.6rem;
+                }
+
+            .lightbox-overlay .lightbox-close {
+                top: 12px;
+                right: 12px;
+                width: 40px;
+                height: 40px;
+                font-size: 1.6rem;
+            }
+        }
     </style>
 </head>
 <body>
 
     <div class="hero-image">
         <div class="overlay">
-            <h1>资源库</h1>
-            <p></p>
+            <h1>纹样展示</h1>
+            <p>蜡染纹样 · 丹寨苗族</p>
         </div>
     </div>
 
     <div class="container">
 
         <a href="index.html" class="back-link">← 返回首页</a>
-
-        <div class="card">
-            <div class="card-title">
-                <span class="icon"></span> 纹样资源
-            </div>
-            <p>蜡染纹样展示</p>
-            <div class="team-list">
-                <div class="team-member">
-                    <div class="avatar">文本</div>
-                    <div class="info">
-                        <div class="name">文本</div>
-                        <div class="role">文本</div>
-                        <div class="bio">文本</div>
-                    </div>
-                </div>
-                <div class="team-member">
-                    <div class="avatar">文本</div>
-                    <div class="info">
-                        <div class="name">文本</div>
-                        <div class="role">文本</div>
-                        <div class="bio">文本</div>
-                    </div>
-                </div>
-                <div class="team-member">
-                    <div class="avatar">文本</div>
-                    <div class="info">
-                        <div class="name">文本</div>
-                        <div class="role">文本</div>
-                        <div class="bio">文本</div>
-                    </div>
-                </div>
-                <div class="team-member" style="background:#f3f4f6; border-style:dashed; justify-content:center;">
-                    <span style="font-size:0.85rem; color:#6b7280;">文本</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card-title">
-                <span class="icon">活动</span>
-            </div>
-            <p>文本</p>
-        </div>
-
+        <!-- ==========================================================
+            底部按钮
+            ========================================================== -->
         <div class="btn-group">
             <a href="upload.html" class="btn btn-primary">📤 上传图片</a>
             <a href="gallery.html" class="btn btn-secondary">🖼️ 查看图库</a>
         </div>
+        <!-- ==========================================================
+    纹样展示
+    ========================================================== -->
+        <div class="card">
+            <div class="card-title">蜡染纹样</div>
+            <div class="card-desc">点击图片可放大查看 · 共 15 幅纹样</div>
+
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- 由 JavaScript 动态生成 -->
+            </div>
+        </div>
+
+
 
         <div class="footer-text">北京科技大学 染叙丹青实践小队</div>
 
     </div>
+
+    <!-- ==========================================================
+    图片放大弹窗（Lightbox）
+    ========================================================== -->
+    <div class="lightbox-overlay" id="lightbox" onclick="closeLightbox()">
+        <button class="lightbox-close" onclick="event.stopPropagation(); closeLightbox();">✕</button>
+        <img class="lightbox-content" id="lightboxImg" src="" alt="放大查看" />
+        <div class="lightbox-name" id="lightboxName"></div>
+    </div>
+
+    <script>
+        // ============================================================
+        // 纹样数据（15个）
+        // ============================================================
+        const patterns = [
+            { id: 11, name: '鸟纹', desc: '' },
+            { id: 12, name: '鸟纹', desc: '' },
+            { id: 13, name: '游鱼纹', desc: '' },
+            { id: 14, name: '游鱼纹', desc: '' },
+            { id: 15, name: '苗龙纹', desc: '' },
+            { id: 16, name: '苗龙纹', desc: '' },
+            { id: 17, name: '苗龙纹', desc: '' },
+            { id: 18, name: '蛙纹', desc: '' },
+            { id: 19, name: '牛纹', desc: '' },
+            { id: 20, name: '龟纹', desc: '' },
+            { id: 21, name: '水蜘蛛纹', desc: '' },
+            { id: 22, name: '窝妥纹', desc: '' },
+            { id: 23, name: '三角菱形纹', desc: '' },
+            { id: 24, name: '铜鼓纹', desc: '' },
+            { id: 25, name: '铜鼓纹', desc: '' }
+        ];
+
+        // ============================================================
+        // 渲染网格
+        // ============================================================
+        const galleryGrid = document.getElementById('galleryGrid');
+
+        patterns.forEach(function (p) {
+            const item = document.createElement('div');
+            item.className = 'gallery-item';
+            item.setAttribute('onclick', 'openLightbox("' + p.id + '.png", "' + p.name + ' · ' + p.desc + '")');
+
+            item.innerHTML = `
+                    <div class="img-wrapper">
+                        <img src="${p.id}.png" alt="${p.name}" loading="lazy" />
+                    </div>
+                    <div class="item-label">
+                        ${p.name}
+                        <span class="sub">${p.desc}</span>
+                    </div>
+                `;
+
+            galleryGrid.appendChild(item);
+        });
+
+        // ============================================================
+        // Lightbox 功能
+        // ============================================================
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const lightboxName = document.getElementById('lightboxName');
+
+        function openLightbox(src, name) {
+            lightboxImg.src = src;
+            lightboxImg.alt = name || '纹样';
+            lightboxName.textContent = name || '';
+            lightbox.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('show');
+            document.body.style.overflow = '';
+        }
+
+        // ESC 键关闭
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && lightbox.classList.contains('show')) {
+                closeLightbox();
+            }
+        });
+
+        // 点击图片本身不关闭弹窗
+        lightboxImg.addEventListener('click', function (e) {
+            e.stopPropagation();
+        });
+
+        console.log('🎨 已加载 ' + patterns.length + ' 个纹样');
+        console.log('💡 点击图片可放大查看');
+    </script>
 
 </body>
 </html>
