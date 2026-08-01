@@ -119,6 +119,7 @@
                 opacity: 0.6;
             }
 
+        /* ===== 团队合影横幅 ===== */
         .banner-image {
             width: 100%;
             border-radius: 14px;
@@ -140,11 +141,15 @@
                 transform: scale(0.98);
             }
 
+            .banner-image picture,
             .banner-image img {
                 width: 100%;
                 height: 100%;
-                object-fit: cover;
                 display: block;
+            }
+
+            .banner-image img {
+                object-fit: cover;
             }
 
         .photo-card {
@@ -158,6 +163,7 @@
                 margin-top: 6px;
             }
 
+        /* ===== 左侧图片 + 右侧三排文本 ===== */
         .profile-card {
             display: flex;
             gap: 16px;
@@ -180,9 +186,14 @@
             cursor: pointer;
         }
 
+            .profile-avatar picture,
             .profile-avatar img {
                 width: 100%;
                 height: 100%;
+                display: block;
+            }
+
+            .profile-avatar img {
                 object-fit: cover;
             }
 
@@ -244,6 +255,7 @@
             margin: 14px 0;
         }
 
+        /* ===== 团队成员 ===== */
         .member-list {
             display: flex;
             flex-direction: column;
@@ -307,11 +319,15 @@
                 opacity: 1;
             }
 
+            .member-avatar picture,
             .member-avatar img {
                 width: 100%;
                 height: 100%;
-                object-fit: cover;
                 display: block;
+            }
+
+            .member-avatar img {
+                object-fit: cover;
             }
 
         .member-info {
@@ -348,6 +364,7 @@
                 line-height: 1.5;
             }
 
+        /* ===== 社交账号 ===== */
         .social-section {
             text-align: center;
         }
@@ -415,11 +432,15 @@
                     transform: scale(0.95);
                 }
 
+                .qr-item .qr-image picture,
                 .qr-item .qr-image img {
                     width: 100%;
                     height: 100%;
-                    object-fit: contain;
                     display: block;
+                }
+
+                .qr-item .qr-image img {
+                    object-fit: contain;
                 }
 
         .wechat-info {
@@ -443,6 +464,7 @@
             padding: 20px 0 8px;
         }
 
+        /* ===== Lightbox ===== */
         .lightbox-overlay {
             display: none;
             position: fixed;
@@ -530,6 +552,8 @@
             background: rgba(0, 0, 0, 0.5);
             padding: 4px 20px;
             border-radius: 20px;
+            max-width: 80%;
+            text-align: center;
         }
 
         @media (max-width: 400px) {
@@ -589,19 +613,25 @@
 
         <a href="index.html" class="back-link">← 返回首页</a>
 
-        <!-- 团队合影横幅 -->
+        <!-- ===== 团队合影横幅（支持 WebP，优先加载） ===== -->
         <div class="card photo-card">
             <div class="banner-image" onclick="openLightbox('hezhao.png', '团队合影')">
-                <img src="hezhao.png" alt="团队合影" loading="lazy" />
+                <picture>
+                    <source srcset="hezhao.webp" type="image/webp" />
+                    <img src="hezhao.png" alt="团队合影" loading="lazy" fetchpriority="high" />
+                </picture>
             </div>
             <div class="photo-label">📸 团队合影 · 点击图片可放大</div>
         </div>
 
-        <!-- 左侧图片 + 右侧三排文本 -->
+        <!-- ===== 左侧图片 + 右侧三排文本（支持 WebP） ===== -->
         <div class="card">
             <div class="profile-card">
                 <div class="profile-avatar" onclick="openLightbox('duihui.png', '团队照片')">
-                    <img src="duihui.png" alt="团队照片" loading="lazy" />
+                    <picture>
+                        <source srcset="duihui.webp" type="image/webp" />
+                        <img src="duihui.png" alt="团队照片" loading="lazy" />
+                    </picture>
                 </div>
                 <div class="profile-info">
                     <div class="info-row">
@@ -620,7 +650,8 @@
             </div>
         </div>
 
-        <!-- 团队成员 -->
+        
+        <!-- ===== 团队成员（支持 WebP） ===== -->
         <div class="card">
             <div class="card-title">团队成员</div>
 
@@ -628,7 +659,10 @@
 
                 <div class="member-item">
                     <div class="member-avatar" onclick="openLightbox('1.png', '王昕冉 · 指导教师')">
-                        <img src="1.png" alt="王昕冉" loading="lazy" />
+                        <picture>
+                            <source srcset="1.webp" type="image/webp" />
+                            <img src="1.png" alt="王昕冉" loading="lazy" />
+                        </picture>
                         <span class="click-hint">🔍</span>
                     </div>
                     <div class="member-info">
@@ -644,7 +678,10 @@
 
                 <div class="member-item">
                     <div class="member-avatar" onclick="openLightbox('2.png', '胡安琪 · 指导学姐')">
-                        <img src="2.png" alt="胡安琪" loading="lazy" />
+                        <picture>
+                            <source srcset="2.webp" type="image/webp" />
+                            <img src="2.png" alt="胡安琪" loading="lazy" />
+                        </picture>
                         <span class="click-hint">🔍</span>
                     </div>
                     <div class="member-info">
@@ -660,7 +697,10 @@
 
                 <div class="member-item">
                     <div class="member-avatar" onclick="openLightbox('3.png', '张婉婷 · 队长')">
-                        <img src="3.png" alt="张婉婷" loading="lazy" />
+                        <picture>
+                            <source srcset="3.webp" type="image/webp" />
+                            <img src="3.png" alt="张婉婷" loading="lazy" />
+                        </picture>
                         <span class="click-hint">🔍</span>
                     </div>
                     <div class="member-info">
@@ -676,7 +716,10 @@
 
                 <div class="member-item">
                     <div class="member-avatar" onclick="openLightbox('4.png', '杨文杰 · 文稿')">
-                        <img src="4.png" alt="杨文杰" loading="lazy" />
+                        <picture>
+                            <source srcset="4.webp" type="image/webp" />
+                            <img src="4.png" alt="杨文杰" loading="lazy" />
+                        </picture>
                         <span class="click-hint">🔍</span>
                     </div>
                     <div class="member-info">
@@ -692,7 +735,10 @@
 
                 <div class="member-item">
                     <div class="member-avatar" onclick="openLightbox('5.png', '潘芳颉 · 技术组')">
-                        <img src="5.png" alt="潘芳颉" loading="lazy" />
+                        <picture>
+                            <source srcset="5.webp" type="image/webp" />
+                            <img src="5.png" alt="潘芳颉" loading="lazy" />
+                        </picture>
                         <span class="click-hint">🔍</span>
                     </div>
                     <div class="member-info">
@@ -708,7 +754,10 @@
 
                 <div class="member-item">
                     <div class="member-avatar" onclick="openLightbox('6.png', '孙晨翔 · 摄影组')">
-                        <img src="6.png" alt="孙晨翔" loading="lazy" />
+                        <picture>
+                            <source srcset="6.webp" type="image/webp" />
+                            <img src="6.png" alt="孙晨翔" loading="lazy" />
+                        </picture>
                         <span class="click-hint">🔍</span>
                     </div>
                     <div class="member-info">
@@ -724,7 +773,10 @@
 
                 <div class="member-item">
                     <div class="member-avatar" onclick="openLightbox('7.png', '李晗菡 · 文稿')">
-                        <img src="7.png" alt="李晗菡" loading="lazy" />
+                        <picture>
+                            <source srcset="7.webp" type="image/webp" />
+                            <img src="7.png" alt="李晗菡" loading="lazy" />
+                        </picture>
                         <span class="click-hint">🔍</span>
                     </div>
                     <div class="member-info">
@@ -740,7 +792,10 @@
 
                 <div class="member-item">
                     <div class="member-avatar" onclick="openLightbox('8.png', '秦玉冰 · 新媒体')">
-                        <img src="8.png" alt="秦玉冰" loading="lazy" />
+                        <picture>
+                            <source srcset="8.webp" type="image/webp" />
+                            <img src="8.png" alt="秦玉冰" loading="lazy" />
+                        </picture>
                         <span class="click-hint">🔍</span>
                     </div>
                     <div class="member-info">
@@ -757,7 +812,7 @@
             </div>
         </div>
 
-        <!-- 理念宗旨 -->
+        <!-- ===== 理念宗旨 ===== -->
         <div class="card">
             <div class="card-title">理念宗旨</div>
             <div class="highlight">
@@ -768,7 +823,7 @@
             <div class="info-label">所属学校：北京科技大学</div>
         </div>
 
-        <!-- 实践核心内容 -->
+        <!-- ===== 实践核心内容 ===== -->
         <div class="card">
             <div class="card-title">实践核心内容</div>
             <p>
@@ -780,7 +835,7 @@
             </p>
         </div>
 
-        <!-- 社交账号 + 二维码 -->
+        <!-- ===== 社交账号 + 二维码（支持 WebP） ===== -->
         <div class="card">
             <div class="social-section">
 
@@ -791,13 +846,19 @@
                 <div class="qr-row">
                     <div class="qr-item">
                         <div class="qr-image" onclick="openLightbox('xhs.png', '小红书二维码')">
-                            <img src="xhs.png" alt="小红书二维码" loading="lazy" />
+                            <picture>
+                                <source srcset="xhs.webp" type="image/webp" />
+                                <img src="xhs.png" alt="小红书二维码" loading="lazy" />
+                            </picture>
                         </div>
                         <span class="qr-label">小红书</span>
                     </div>
                     <div class="qr-item">
                         <div class="qr-image" onclick="openLightbox('dy.png', '抖音二维码')">
-                            <img src="dy.png" alt="抖音二维码" loading="lazy" />
+                            <picture>
+                                <source srcset="dy.webp" type="image/webp" />
+                                <img src="dy.png" alt="抖音二维码" loading="lazy" />
+                            </picture>
                         </div>
                         <span class="qr-label">抖音</span>
                     </div>
@@ -814,7 +875,7 @@
 
     </div>
 
-    <!-- Lightbox -->
+    <!-- ===== Lightbox ===== -->
     <div class="lightbox-overlay" id="lightbox" onclick="closeLightbox()">
         <button class="lightbox-close" onclick="event.stopPropagation(); closeLightbox();">✕</button>
         <img class="lightbox-content" id="lightboxImg" src="" alt="放大查看" />

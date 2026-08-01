@@ -99,9 +99,6 @@
             margin-bottom: 12px;
         }
 
-        /* ==========================================================
-        两列图文网格
-        ========================================================== */
         .gallery-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -132,25 +129,16 @@
                 justify-content: center;
             }
 
+                .gallery-item .img-wrapper picture,
                 .gallery-item .img-wrapper img {
                     width: 100%;
                     height: 100%;
-                    object-fit: cover;
                     display: block;
                 }
 
-                .gallery-item .img-wrapper .placeholder {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    justify-content: center;
-                    color: #9ca3af;
-                    font-size: 0.7rem;
+                .gallery-item .img-wrapper img {
+                    object-fit: cover;
                 }
-
-                    .gallery-item .img-wrapper .placeholder .icon {
-                        font-size: 2rem;
-                    }
 
             .gallery-item .item-label {
                 padding: 8px 10px 10px;
@@ -171,9 +159,6 @@
                     margin-top: 2px;
                 }
 
-        /* ==========================================================
-        底部按钮
-        ========================================================== */
         .btn-group {
             display: flex;
             gap: 10px;
@@ -223,9 +208,6 @@
             padding: 20px 0 8px;
         }
 
-        /* ==========================================================
-        图片放大弹窗（Lightbox）
-        ========================================================== */
         .lightbox-overlay {
             display: none;
             position: fixed;
@@ -353,16 +335,11 @@
     <div class="container">
 
         <a href="index.html" class="back-link">← 返回首页</a>
-        <!-- ==========================================================
-            底部按钮
-            ========================================================== -->
         <div class="btn-group">
             <a href="upload.html" class="btn btn-primary">📤 上传图片</a>
             <a href="gallery.html" class="btn btn-secondary">🖼️ 查看图库</a>
         </div>
-        <!-- ==========================================================
-    纹样展示
-    ========================================================== -->
+
         <div class="card">
             <div class="card-title">蜡染纹样</div>
             <div class="card-desc">点击图片可放大查看 · 共 15 幅纹样</div>
@@ -373,14 +350,11 @@
         </div>
 
 
-
         <div class="footer-text">北京科技大学 染叙丹青实践小队</div>
 
     </div>
 
-    <!-- ==========================================================
-    图片放大弹窗（Lightbox）
-    ========================================================== -->
+    <!-- Lightbox -->
     <div class="lightbox-overlay" id="lightbox" onclick="closeLightbox()">
         <button class="lightbox-close" onclick="event.stopPropagation(); closeLightbox();">✕</button>
         <img class="lightbox-content" id="lightboxImg" src="" alt="放大查看" />
@@ -389,24 +363,34 @@
 
     <script>
         // ============================================================
-        // 纹样数据（15个）
+        // 纹样数据（按数量分配）
         // ============================================================
         const patterns = [
-            { id: 11, name: '鸟纹', desc: '' },
-            { id: 12, name: '鸟纹', desc: '' },
-            { id: 13, name: '游鱼纹', desc: '' },
-            { id: 14, name: '游鱼纹', desc: '' },
-            { id: 15, name: '苗龙纹', desc: '' },
-            { id: 16, name: '苗龙纹', desc: '' },
-            { id: 17, name: '苗龙纹', desc: '' },
-            { id: 18, name: '蛙纹', desc: '' },
-            { id: 19, name: '牛纹', desc: '' },
-            { id: 20, name: '龟纹', desc: '' },
-            { id: 21, name: '水蜘蛛纹', desc: '' },
-            { id: 22, name: '窝妥纹', desc: '' },
-            { id: 23, name: '三角菱形纹', desc: '' },
-            { id: 24, name: '铜鼓纹', desc: '' },
-            { id: 25, name: '铜鼓纹', desc: '' }
+            // 鸟纹 x2
+            { id: 11, name: '鸟纹', desc: '蜡染 · 丹寨苗族' },
+            { id: 12, name: '鸟纹', desc: '蜡染 · 丹寨苗族' },
+            // 游鱼纹 x2
+            { id: 13, name: '游鱼纹', desc: '蜡染 · 丹寨苗族' },
+            { id: 14, name: '游鱼纹', desc: '蜡染 · 丹寨苗族' },
+            // 苗龙纹 x3
+            { id: 15, name: '苗龙纹', desc: '蜡染 · 丹寨苗族' },
+            { id: 16, name: '苗龙纹', desc: '蜡染 · 丹寨苗族' },
+            { id: 17, name: '苗龙纹', desc: '蜡染 · 丹寨苗族' },
+            // 蛙纹 x1
+            { id: 18, name: '蛙纹', desc: '蜡染 · 丹寨苗族' },
+            // 牛纹 x1
+            { id: 19, name: '牛纹', desc: '蜡染 · 丹寨苗族' },
+            // 龟纹 x1
+            { id: 20, name: '龟纹', desc: '蜡染 · 丹寨苗族' },
+            // 水蜘蛛纹 x1
+            { id: 21, name: '水蜘蛛纹', desc: '蜡染 · 丹寨苗族' },
+            // 窝妥纹 x1
+            { id: 22, name: '窝妥纹', desc: '蜡染 · 丹寨苗族' },
+            // 三角菱形纹 x1
+            { id: 23, name: '三角菱形纹', desc: '蜡染 · 丹寨苗族' },
+            // 铜鼓纹 x2
+            { id: 24, name: '铜鼓纹', desc: '蜡染 · 丹寨苗族' },
+            { id: 25, name: '铜鼓纹', desc: '蜡染 · 丹寨苗族' }
         ];
 
         // ============================================================
@@ -421,7 +405,10 @@
 
             item.innerHTML = `
                     <div class="img-wrapper">
-                        <img src="${p.id}.png" alt="${p.name}" loading="lazy" />
+                        <picture>
+                            <source srcset="${p.id}.webp" type="image/webp" />
+                            <img src="${p.id}.png" alt="${p.name}" loading="lazy" />
+                        </picture>
                     </div>
                     <div class="item-label">
                         ${p.name}
@@ -433,7 +420,7 @@
         });
 
         // ============================================================
-        // Lightbox 功能
+        // Lightbox
         // ============================================================
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightboxImg');
@@ -452,20 +439,18 @@
             document.body.style.overflow = '';
         }
 
-        // ESC 键关闭
         document.addEventListener('keydown', function (e) {
             if (e.key === 'Escape' && lightbox.classList.contains('show')) {
                 closeLightbox();
             }
         });
 
-        // 点击图片本身不关闭弹窗
         lightboxImg.addEventListener('click', function (e) {
             e.stopPropagation();
         });
 
         console.log('🎨 已加载 ' + patterns.length + ' 个纹样');
-        console.log('💡 点击图片可放大查看');
+        console.log('📊 鸟纹×2, 游鱼纹×2, 苗龙纹×3, 蛙纹×1, 牛纹×1, 龟纹×1, 水蜘蛛纹×1, 窝妥纹×1, 三角菱形纹×1, 铜鼓纹×2');
     </script>
 
 </body>

@@ -274,15 +274,21 @@
         <a href="index.html" class="back-link">← 返回首页</a>
 
         <!-- ==========================================================
-        顶部：两张图片
+        顶部：两张图片（支持 WebP）
         ========================================================== -->
         <div class="card">
             <div class="image-row">
                 <div class="img-wrapper">
-                    <img src="ip.png" alt="IP形象 - 小染" loading="lazy" />
+                    <picture>
+                        <source srcset="ip.webp" type="image/webp" />
+                        <img src="ip.png" alt="IP形象 - 小染" loading="lazy" />
+                    </picture>
                 </div>
                 <div class="img-wrapper">
-                    <img src="laran.png" alt="蜡染纹样" loading="lazy" />
+                    <picture>
+                        <source srcset="laran.webp" type="image/webp" />
+                        <img src="laran.png" alt="蜡染纹样" loading="lazy" />
+                    </picture>
                 </div>
             </div>
         </div>
