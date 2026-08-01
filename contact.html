@@ -119,6 +119,60 @@
                 opacity: 0.6;
             }
 
+        /* ===== 顶部横幅图片 ===== */
+        .banner-image {
+            width: 100%;
+            border-radius: 14px;
+            overflow: hidden;
+            background: #f3f4f6;
+            border: 2px solid #e5e7eb;
+            aspect-ratio: 16 / 9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            color: #9ca3af;
+            cursor: pointer;
+            transition: 0.2s;
+            margin-bottom: 6px;
+        }
+
+            .banner-image:active {
+                transform: scale(0.98);
+            }
+
+            .banner-image img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+            }
+
+            .banner-image .placeholder {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 6px;
+                color: #9ca3af;
+            }
+
+                .banner-image .placeholder .icon {
+                    font-size: 2.5rem;
+                }
+
+        /* ===== 团队合影卡片 ===== */
+        .photo-card {
+            padding: 14px 14px 16px;
+        }
+
+            .photo-card .photo-label {
+                font-size: 0.75rem;
+                color: #6b7280;
+                text-align: center;
+                margin-top: 6px;
+            }
+
         .profile-card {
             display: flex;
             gap: 16px;
@@ -557,11 +611,21 @@
         <a href="index.html" class="back-link">← 返回首页</a>
 
         <!-- ==========================================================
+        顶部：团队合影横幅（新增）
+        ========================================================== -->
+        <div class="card photo-card">
+            <div class="banner-image" onclick="openLightbox('hezhao.png', '团队合影')">
+                <img src="hezhao.png" alt="团队合影" />
+            </div>
+            <div class="photo-label">📸 团队合影 · 点击图片可放大</div>
+        </div>
+
+        <!-- ==========================================================
         第一部分：左侧图片 + 右侧三排文本
         ========================================================== -->
         <div class="card">
             <div class="profile-card">
-                <div class="profile-avatar" onclick="openLightbox('duihui.png', '团队合影')">
+                <div class="profile-avatar" onclick="openLightbox('duihui.png', '团队照片')">
                     <img src="duihui.png" alt="团队照片" />
                 </div>
                 <div class="profile-info">
@@ -582,7 +646,6 @@
         </div>
 
        
-
         <!-- ==========================================================
         第二部分：团队成员
         ========================================================== -->
@@ -731,7 +794,7 @@
         </div>
 
         <!-- ==========================================================
-        第三部分：理念宗旨 + 实践核心内容（从 index 移入）
+        第三部分：理念宗旨 + 实践核心内容
         ========================================================== -->
         <!-- 理念宗旨 -->
         <div class="card">
@@ -763,17 +826,6 @@
             <div class="social-section">
 
                 <div class="social-title">关注我们</div>
-
-                <div class="social-row">
-                    <a href="#" style="color:#1a6b4a;">📸</a>
-                    <a href="#" style="color:#1a6b4a;">🎵</a>
-                    <a href="#" style="color:#1a6b4a;">📺</a>
-                    <a href="#" style="color:#1a6b4a;">💬</a>
-                </div>
-                <p style="font-size:0.7rem; color:#9ca3af; margin-top:2px;">
-                    点击图标进入对应主页
-                </p>
-
                 <!-- 二维码 -->
                 <div class="qr-row">
                     <div class="qr-item">
@@ -844,7 +896,7 @@
             e.stopPropagation();
         });
 
-        console.log('📸 点击头像或二维码可放大查看');
+        console.log('📸 点击图片可放大查看');
     </script>
 
 </body>
